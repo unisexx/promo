@@ -18,3 +18,14 @@ Route::get('/', function () {
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
+
+// เช็กล็อกอิน
+Route::group(['middleware' => 'auth'], function () {
+
+    // Creator
+    Route::group(['prefix' => 'creator', 'namespace' => 'creator'], function(){
+        Route::controller('dashboard', 'DashboardController');
+        Route::controller('sticker', 'StickerController');
+    });
+
+}); //middleware
