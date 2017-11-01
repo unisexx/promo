@@ -12,6 +12,6 @@ use DB;
 
 class DashboardController extends Controller {
     public function getIndex() {
-        return view('home');
+        return view('creator.sticker.index');
     }
 }
