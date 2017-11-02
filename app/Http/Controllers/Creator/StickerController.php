@@ -14,4 +14,8 @@ class StickerController extends Controller {
     public function getIndex() {
         return view('creator.sticker.index');
     }
+
+    public function getForm(){
+        return view('creator.sticker.form');
+    }
 }
