@@ -23,7 +23,7 @@ Route::get('/home', 'HomeController@index');
 Route::group(['middleware' => 'auth'], function () {
 
     // Creator
-    Route::group(['prefix' => 'creator', 'namespace' => 'creator'], function(){
+    Route::group(['prefix' => 'creator', 'namespace' => 'Creator'], function(){
         Route::controller('dashboard', 'DashboardController');
         Route::controller('sticker', 'StickerController');
     });

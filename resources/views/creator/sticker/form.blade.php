@@ -20,39 +20,115 @@
 
     <!-- Main content -->
     <section class="content">
+      
       <div class="row">
         <!-- left column -->
         <div class="col-md-12">
-          <!-- general form elements -->
-          <div class="box box-primary">
+          <!-- Horizontal Form -->
+          <div class="box box-info">
             <div class="box-header with-border">
-              <h3 class="box-title">Quick Example</h3>
+              <h3 class="box-title">Horizontal Form</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form role="form">
+            <form class="form-horizontal">
               <div class="box-body">
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Email address</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputPassword1">Password</label>
-                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                  <label for="inputEmail3" class="col-sm-2 control-label">ค้นหาข้อมูล</label>
+                  <div class="col-sm-10">
+                  <div class="input-group">
+                    <span class="input-group-addon">https://store.line.me/stickershop/product/</span>
+                    <input type="text" class="form-control" placeholder="หมายเลขไอดีของสติ๊กเกอร์">
+                    <span class="input-group-addon">/th</span>
+                  </div>
+                  </div>
                 </div>
               </div>
               <!-- /.box-body -->
-
               <div class="box-footer">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <!-- <button type="submit" class="btn btn-default">Cancel</button> -->
+                <button type="submit" class="btn btn-info pull-right">บันทึกข้อมูล</button>
               </div>
+              <!-- /.box-footer -->
             </form>
           </div>
-          <!-- /.box -->
         </div>
         <!--/.col (left) -->
       </div>
       <!-- /.row -->
+
+
+      {{-- comment
+      <div class="row">
+        <!-- left column -->
+        <div class="col-md-6">
+          <!-- Horizontal Form -->
+          <div class="box box-info">
+            <div class="box-header with-border">
+              <h3 class="box-title">Preview</h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            <form class="form-horizontal">
+              <div class="box-body">
+                <div class="form-group">
+                  <label for="inputEmail3" class="col-sm-2 control-label">ค้นหาข้อมูล</label>
+                  <div class="col-sm-10">
+                  <div class="input-group">
+                    <span class="input-group-addon">https://store.line.me/stickershop/product/</span>
+                    <input type="text" class="form-control" placeholder="หมายเลขไอดีของสติ๊กเกอร์">
+                    <span class="input-group-addon">/th</span>
+                  </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /.box-body -->
+              <div class="box-footer">
+                <!-- <button type="submit" class="btn btn-default">Cancel</button> -->
+                <button type="submit" class="btn btn-info pull-right">ดึงข้อมูลสติ๊กเกอร์</button>
+              </div>
+              <!-- /.box-footer -->
+            </form>
+          </div>
+        </div>
+        <!--/.col (left) -->
+
+        <!-- left column -->
+        <div class="col-md-6">
+          <!-- Horizontal Form -->
+          <div class="box box-info">
+            <div class="box-header with-border">
+              <h3 class="box-title">Detail</h3>
+            </div>
+            <!-- /.box-header -->
+            <!-- form start -->
+            <form class="form-horizontal">
+              <div class="box-body">
+                <div class="form-group">
+                  <label for="inputEmail3" class="col-sm-2 control-label">ค้นหาข้อมูล</label>
+                  <div class="col-sm-10">
+                  <div class="input-group">
+                    <span class="input-group-addon">https://store.line.me/stickershop/product/</span>
+                    <input type="text" class="form-control" placeholder="หมายเลขไอดีของสติ๊กเกอร์">
+                    <span class="input-group-addon">/th</span>
+                  </div>
+                  </div>
+                </div>
+              </div>
+              <!-- /.box-body -->
+              <div class="box-footer">
+                <!-- <button type="submit" class="btn btn-default">Cancel</button> -->
+                <button type="submit" class="btn btn-info pull-right">ดึงข้อมูลสติ๊กเกอร์</button>
+              </div>
+              <!-- /.box-footer -->
+            </form>
+          </div>
+        </div>
+        <!--/.col (left) -->
+      </div>
+      <!-- /.row -->
+      comment --}}
+
     </section>
     <!-- /.content -->
   </div>
