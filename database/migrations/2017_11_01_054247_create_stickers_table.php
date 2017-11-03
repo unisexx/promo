@@ -15,14 +15,18 @@ class CreateStickersTable extends Migration
         Schema::create('stickers', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('code');
-            $table->string('name', 100);
+            $table->string('name', 250);
             $table->text('description');
-            $table->text('image_cover');
-            $table->text('image_detail');
-            $table->text('image_promote');
+            $table->string('head_credit', 100);
+            $table->string('foot_credit', 100);
             $table->integer('user_id');
             $table->tinyInteger('status');
+            $table->tinyInteger('version');
+            $table->tinyInteger('hasanimation');
+            $table->tinyInteger('hassound');
+            $table->string('stickerresourcetype',20);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -7,8 +7,11 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\Models\Sticker;
+
 use Form;
 use DB;
+use Goutte;
 
 class StickerController extends Controller {
     public function getIndex() {
@@ -16,71 +19,75 @@ class StickerController extends Controller {
     }
 
     public function getForm(){
-        $sticker_code = 1433464;
-        // $url = "https://store.line.me/stickershop/product/".$sticker_code."/th";
-		// $html = file_get_html($url);
+		$sticker_code = 1563388;
+		$crawler = Goutte::request('GET', 'https://store.line.me/stickershop/product/'.$sticker_code.'/th');
+		$image_cover = $crawler->filter('div.mdCMN08Img > img')->attr('src');
+		$head_credit = $crawler->filter('p.mdCMN08Copy > a')->text();
+		$sticker_name = $crawler->filter('h3.mdCMN08Ttl')->text();
+		$sticker_description = $crawler->filter('p.mdCMN08Desc')->text();
+		$sticker_price = $crawler->filter('p.mdCMN08Price')->text();
+		$foot_credit = $crawler->filter('p.mdCMN09Copy')->text();
 
-		// $image = trim($html->find('div.mdCMN08Img > img',0)->src);
-		// $image = explode("/", $image);
-		// $data['version'] = str_replace('v','',$image[4]);
+		dump($image_cover);
+		dump($head_credit);
+		dump($sticker_name);
+		dump($sticker_description);
+		dump($sticker_price);
+		dump($foot_credit);
 
-		// update productInfo
-		//  Initiate curl
-		$ch = curl_init();
-		// Disable SSL verification
-		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-		// Will return the response, if false it print the response
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-		// Set the url
-		curl_setopt($ch, CURLOPT_URL,'https://store.line.me/stickershop/product/5876/th');
-		// Execute
-		$result=curl_exec($ch);
-		// Closing
-		curl_close($ch);
-		$json = json_decode($result, true);
-        
-        var_dump($result);
+		$image_cover_path = explode("/", $image_cover);
+		$version = str_replace('v','',$image_cover_path[4]);
 
+		$curlSession = curl_init();
+        curl_setopt($curlSession, CURLOPT_URL, 'http://dl.stickershop.line.naver.jp/products/0/0/'.$version.'/'.$sticker_code.'/LINEStorePC/productInfo.meta');
+        curl_setopt($curlSession, CURLOPT_BINARYTRANSFER, true);
+        curl_setopt($curlSession, CURLOPT_RETURNTRANSFER, true);
+        $jsonData = json_decode(curl_exec($curlSession));
+        curl_close($curlSession);
+		dump($jsonData);
 
-
-        // $curlSession = curl_init();
-        // curl_setopt($curlSession, CURLOPT_URL, 'https://chart.googleapis.com/chart?cht=p3&chs=250x100&chd=t:60,40&chl=Hello|World&chof=json');
-        // curl_setopt($curlSession, CURLOPT_BINARYTRANSFER, true);
-        // curl_setopt($curlSession, CURLOPT_RETURNTRANSFER, true);
-    
-        // $jsonData = json_decode(curl_exec($curlSession));
-        // curl_close($curlSession);
-
-        // var_dump($jsonData);
-        
         return view('creator.sticker.form');
     }
 
-    // public function postSave(){
+    public function postSave(Request $rq, $id = null){
 
-    //     $sticker_code = 8756;
-    //     $url = "https://store.line.me/stickershop/product/".$sticker_code."/th";
-	// 	$html = file_get_html($url);
+		$sticker_code = $rq->sticker_code;
+		$crawler = Goutte::request('GET', 'https://store.line.me/stickershop/product/'.$sticker_code.'/th');
+		$image_cover = $crawler->filter('div.mdCMN08Img > img')->attr('src');
+		$head_credit = $crawler->filter('p.mdCMN08Copy > a')->text();
+		$sticker_name = $crawler->filter('h3.mdCMN08Ttl')->text();
+		$sticker_description = $crawler->filter('p.mdCMN08Desc')->text();
+		$sticker_price = $crawler->filter('p.mdCMN08Price')->text();
+		$foot_credit = $crawler->filter('p.mdCMN09Copy')->text();
 
-	// 	$image = trim($html->find('div.mdCMN08Img > img',0)->src);
-	// 	$image = explode("/", $image);
-	// 	$data['version'] = str_replace('v','',$image[4]);
+		dump($image_cover);
+		dump($head_credit);
+		dump($sticker_name);
+		dump($sticker_description);
+		dump($sticker_price);
+		dump($foot_credit);
 
-	// 	// update productInfo
-	// 	//  Initiate curl
-	// 	$ch = curl_init();
-	// 	// Disable SSL verification
-	// 	curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-	// 	// Will return the response, if false it print the response
-	// 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-	// 	// Set the url
-	// 	curl_setopt($ch, CURLOPT_URL,'http://dl.stickershop.line.naver.jp/products/0/0/'.$data['version'].'/'.$sticker_code.'/LINEStorePC/productInfo.meta');
-	// 	// Execute
-	// 	$result=curl_exec($ch);
-	// 	// Closing
-	// 	curl_close($ch);
-	// 	$json = json_decode($result, true);
-    //     echo $json;
+		$image_cover_path = explode("/", $image_cover);
+		$version = str_replace('v','',$image_cover_path[4]);
 
-    // }
+		$curlSession = curl_init();
+        curl_setopt($curlSession, CURLOPT_URL, 'http://dl.stickershop.line.naver.jp/products/0/0/'.$version.'/'.$sticker_code.'/LINEStorePC/productInfo.meta');
+        curl_setopt($curlSession, CURLOPT_BINARYTRANSFER, true);
+        curl_setopt($curlSession, CURLOPT_RETURNTRANSFER, true);
+        $jsonData = json_decode(curl_exec($curlSession));
+        curl_close($curlSession);
+		dump($jsonData);
+
+		// Save
+		$model = $id ? Sticker::find($id) : new Sticker;
+		$model->fill(array(
+			'ticket_results_id' => $model->id,
+			'helps_id'          => $i,
+			'helps_fill'        => empty($rq->help_fill[$i])?null: $rq->help_fill[$i],
+		));
+		$model->save();
+
+		set_notify('success', trans('message.completeSave'));
+		return Redirect('creator/sticker/index');
+    }
 }

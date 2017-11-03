@@ -31,14 +31,14 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            <form class="form-horizontal">
+            {{Form::open(array('url'=>'creator/sticker/save', 'method'=>'post', 'class'=>'form-horizontal'))}}
               <div class="box-body">
                 <div class="form-group">
                   <label for="inputEmail3" class="col-sm-2 control-label">ค้นหาข้อมูล</label>
                   <div class="col-sm-10">
                   <div class="input-group">
                     <span class="input-group-addon">https://store.line.me/stickershop/product/</span>
-                    <input type="text" class="form-control" placeholder="หมายเลขไอดีของสติ๊กเกอร์">
+                    <input type="text" class="form-control" name="sticker_code" placeholder="หมายเลขไอดีของสติ๊กเกอร์" value="1563388">
                     <span class="input-group-addon">/th</span>
                   </div>
                   </div>
@@ -50,7 +50,7 @@
                 <button type="submit" class="btn btn-info pull-right">บันทึกข้อมูล</button>
               </div>
               <!-- /.box-footer -->
-            </form>
+            {{Form::close()}}
           </div>
         </div>
         <!--/.col (left) -->
