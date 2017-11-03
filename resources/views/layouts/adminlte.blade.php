@@ -10,13 +10,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>AdminLTE 2 | Starter</title>
   <meta name="csrf-token" content="{{ csrf_token() }}">
-  <script>
-    $.ajaxSetup({
-      headers: {
-          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-      }
-    });
-  </script>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <link rel="stylesheet" href="AdminLTE-2.4.2/bower_components/bootstrap/dist/css/bootstrap.min.css">
@@ -116,17 +109,55 @@ desired effect
      Both of these plugins are recommended to enhance the
      user experience. -->
 
+{!! js_notify() !!}
+
+<!-- validate -->
+<script src="js/validate/jquery.validate.min.js"></script>
+<link rel='stylesheet' type='text/css' href='js/validate/jquery.validate.css'>
+
+<script type="text/javascript">
+	$(function(){
+		$('#stickerFrm').validate({
+        rules: {
+            sticker_code : { 
+            	required:true ,
+            	number: true,
+            	remote: "creator/sticker/ajaxchecksticker",
+            	type: "get",
+				data: {
+                        sticker_code: function() {
+                          return $( "[name=sticker_code]" ).val();
+                        }
+				}
+            },
+        },
+        messages: {
+            sticker_code : { required: "กรุณาระบุ", number: "กรุณากรอกตัวเลขเท่านั้น", remote: "หมายเลขสติ๊กเกอร์นี้มีในรายการแล้ว" },
+        },
+	        errorPlacement: function(error, element) {
+	            if (element.attr('error_element')) {
+	                $("#"+element.attr('error_element')).html(error);
+	            } else {
+	                error.insertAfter(element);
+	                element.focus();
+	            }
+	        },
+	    });
+	});
+</script>
+
+
+<script>
+$.ajaxSetup({
+  headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      }
+    });
+</script>
+  
 <script>
   $(function () {
-    $('#example1').DataTable()
-    $('#example2').DataTable({
-      'paging'      : true,
-      'lengthChange': false,
-      'searching'   : false,
-      'ordering'    : true,
-      'info'        : true,
-      'autoWidth'   : false
-    })
+    $('#tableSticker').DataTable();
   })
 </script>
 </body>

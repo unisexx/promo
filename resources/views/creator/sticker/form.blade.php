@@ -31,16 +31,17 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            {{Form::open(array('url'=>'creator/sticker/save', 'method'=>'post', 'class'=>'form-horizontal'))}}
+            {{Form::open(array('url'=>'creator/sticker/save', 'method'=>'post', 'class'=>'form-horizontal','id'=>'stickerFrm'))}}
               <div class="box-body">
                 <div class="form-group">
                   <label for="inputEmail3" class="col-sm-2 control-label">ค้นหาข้อมูล</label>
                   <div class="col-sm-10">
                   <div class="input-group">
-                    <span class="input-group-addon">https://store.line.me/stickershop/product/</span>
-                    <input type="text" class="form-control" name="sticker_code" placeholder="หมายเลขไอดีของสติ๊กเกอร์" value="1563388">
-                    <span class="input-group-addon">/th</span>
+                    <span class="input-group-addon" style="background-color:#f1f1f1;">https://store.line.me/stickershop/product/</span>
+                    <input error_element="error_sticker_code" type="text" class="form-control" name="sticker_code" placeholder="หมายเลขไอดีของสติ๊กเกอร์" value="">
+                    <span class="input-group-addon" style="background-color:#f1f1f1;">/th</span>
                   </div>
+                  <div id="error_sticker_code"></div>
                   </div>
                 </div>
               </div>

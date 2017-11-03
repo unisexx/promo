@@ -33,8 +33,8 @@
         <li class="header">Menu</li>
         <!-- Optionally, you can add icons to the links -->
         <li {{ request()->segment(2) == 'dashboard' ? 'class=active' : '' }}><a href="{{ url('creator/dashboard') }}"><i class="fa fa-link"></i> <span>Dashboard</span></a></li>
-        <li {{ request()->segment(2) == 'sticker' ? 'class=active' : '' }}><a href="{{ url('creator/sticker') }}"><i class="fa fa-link"></i> <span>form 1</span></a></li>
-        <li {{ request()->segment(2) == 'theme' ? 'class=active' : '' }}><a href="{{ url('creator/theme') }}"><i class="fa fa-link"></i> <span>form 2</span></a></li>
+        <li {{ request()->segment(2) == 'sticker' ? 'class=active' : '' }}><a href="{{ url('creator/sticker') }}"><i class="fa fa-link"></i> <span>Sticker</span></a></li>
+        <li {{ request()->segment(2) == 'theme' ? 'class=active' : '' }}><a href="{{ url('creator/theme') }}"><i class="fa fa-link"></i> <span>Theme</span></a></li>
 
         <!-- <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li> -->
         <!-- <li class="treeview">
