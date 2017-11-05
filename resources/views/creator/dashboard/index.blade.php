@@ -42,14 +42,14 @@
           <!-- small box -->
           <div class="small-box bg-green">
             <div class="inner">
-              <h3>0</h3>
+              <h3>{{ $theme_count }}</h3>
 
               <p>Theme</p>
             </div>
             <div class="icon">
               <i class="fa fa-map-o"></i>
             </div>
-            <a href="#" class="small-box-footer">
+            <a href="{{ url('creator/theme') }}" class="small-box-footer">
               More info <i class="fa fa-arrow-circle-right"></i>
             </a>
           </div>

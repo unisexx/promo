@@ -11,13 +11,16 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+    // return view('welcome');
+// });
+
+Route::controller('sticker', 'StickerController');
+Route::controller('theme', 'ThemeController');
 
 Route::auth();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/', 'HomeController@index');
 
 // เช็กล็อกอิน
 Route::group(['middleware' => 'auth'], function () {
@@ -26,6 +29,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::group(['prefix' => 'creator', 'namespace' => 'Creator'], function(){
         Route::controller('dashboard', 'DashboardController');
         Route::controller('sticker', 'StickerController');
+		Route::controller('theme', 'ThemeController');
     });
 
 }); //middleware

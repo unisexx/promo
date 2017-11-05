@@ -5,6 +5,11 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 
+use App\Models\Sticker;
+use App\Models\Theme;
+
+use DB;
+
 class HomeController extends Controller
 {
     /**
@@ -12,10 +17,10 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+        // $this->middleware('auth');
+    // }
 
     /**
      * Show the application dashboard.
@@ -24,6 +29,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+    	$data['sticker'] = new Sticker;
+    	$data['sticker'] = $data['sticker']->orderBy('id','desc')->get();
+		
+		$data['theme'] = new Theme;
+    	$data['theme'] = $data['theme']->orderBy('id','desc')->get();
+        return view('home',$data);
     }
 }

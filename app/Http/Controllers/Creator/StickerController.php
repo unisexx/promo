@@ -174,9 +174,9 @@ class StickerController extends Controller {
 			'user_id'			=> Auth::user()->id,
 			'status'			=> 1,
 			'version'			=> $version,
-			'hasanimation'			=> $json['hasAnimation'],
-			'hassound'			=> $json['hasSound'],
-			'stickerresourcetype'			=> $json['stickerResourceType'],
+			'hasanimation'			=> @$json['hasAnimation'],
+			'hassound'			=> @$json['hasSound'],
+			'stickerresourcetype'			=> @$json['stickerResourceType'],
 		));
 		$model->save();
 		

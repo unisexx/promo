@@ -8,7 +8,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <base href="{{ url('/') }}/"  />
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>AdminLTE 2 | Starter</title>
+  <title>ระบบจัดการข้อมูล</title>
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -133,6 +133,32 @@ desired effect
         },
         messages: {
             sticker_code : { required: "กรุณาระบุ", number: "กรุณากรอกตัวเลขเท่านั้น", remote: "หมายเลขสติ๊กเกอร์นี้มีในรายการแล้ว" },
+        },
+	        errorPlacement: function(error, element) {
+	            if (element.attr('error_element')) {
+	                $("#"+element.attr('error_element')).html(error);
+	            } else {
+	                error.insertAfter(element);
+	                element.focus();
+	            }
+	        },
+	    });
+	    
+	    $('#themeFrm').validate({
+        rules: {
+            theme_code : { 
+            	required:true ,
+            	remote: "creator/theme/ajaxchecktheme",
+            	type: "get",
+				data: {
+                        sticker_code: function() {
+                          return $( "[name=theme_code]" ).val();
+                        }
+				}
+            },
+        },
+        messages: {
+            theme_code : { required: "กรุณาระบุ", remote: "ไอดีธีมนี้มีในรายการแล้ว" },
         },
 	        errorPlacement: function(error, element) {
 	            if (element.attr('error_element')) {

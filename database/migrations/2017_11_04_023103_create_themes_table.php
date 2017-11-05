@@ -14,11 +14,13 @@ class CreateThemesTable extends Migration
     {
         Schema::create('themes', function (Blueprint $table) {
             $table->increments('id');
+			$table->string('theme_code',100);
 			$table->string('name', 250);
 			$table->text('description');
+			$table->string('price', 10);
+			$table->integer('user_id');
             $table->string('head_credit', 100);
             $table->string('foot_credit', 100);
-			$table->string('theme_path',100);
 			$table->tinyInteger('status');
             $table->timestamps();
 			$table->softDeletes();
