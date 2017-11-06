@@ -77,7 +77,7 @@ desired effect
   <!-- Main Footer -->
   @include('include.adminlte.footer')
 
-  <!-- Main Footer -->
+  <!-- Right Sidebar -->
   @include('include.adminlte.right_sidebar')
 
 

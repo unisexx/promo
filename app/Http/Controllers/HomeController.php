@@ -30,10 +30,10 @@ class HomeController extends Controller
     public function index()
     {
     	$data['sticker'] = new Sticker;
-    	$data['sticker'] = $data['sticker']->orderBy('id','desc')->get();
+    	$data['sticker'] = $data['sticker']->orderBy('updated_at','desc')->get();
 		
 		$data['theme'] = new Theme;
-    	$data['theme'] = $data['theme']->orderBy('id','desc')->get();
+    	$data['theme'] = $data['theme']->orderBy('updated_at','desc')->get();
         return view('home',$data);
     }
 }

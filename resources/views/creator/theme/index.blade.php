@@ -50,7 +50,7 @@
 		                  <td>
 		                  	<a href="creator/theme/update/{{ $row->id }}" onclick="return confirm('ต้องการอัพเดทข้อมูลรายการนี้')"><button type="button" class="btn btn-warning  btn-xs">อัพเดทข้อมูล</button></a>
 		                  	<a href="creator/theme/delete/{{ $row->id }}" onclick="return confirm('ต้องการลบรายการนี้')"><button type="button" class="btn btn-danger btn-xs">ลบ</button></a>
-		                  	<a href="creator/theme/pin/{{ $row->id }}" onclick="return confirm('ต้องการดันข้อมูลนี้')"><button type="button" class="btn btn-primary btn-xs">ดันข้อมูลขึ้นบนสุด</button></a>
+		                  	<a href="creator/theme/up/{{ $row->id }}" onclick="return confirm('ต้องการดันข้อมูลนี้')"><button type="button" class="btn btn-primary btn-xs">ดันข้อมูลขึ้นบนสุด</button></a>
 		                  </td>
 		                </tr>
                 	@endforeach

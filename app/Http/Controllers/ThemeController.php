@@ -13,8 +13,13 @@ use DB;
 
 class ThemeController extends Controller {
     public function getIndex() {
-    	$data['rs'] = new Theme;
-    	$data['rs'] = $data['rs']->orderBy('id','desc')->get();
+    	$data['theme'] = new Theme;
+    	$data['theme'] = $data['theme']->orderBy('updated_at','desc')->paginate(30);
         return view('theme.index',$data);
     }
+	
+	public function getView($id = null){
+		$data['rs'] = Theme::find($id);
+    	return view('theme.view',$data);
+	}
 }

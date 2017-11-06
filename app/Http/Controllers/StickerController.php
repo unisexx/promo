@@ -13,8 +13,13 @@ use DB;
 
 class StickerController extends Controller {
     public function getIndex() {
-    	$data['rs'] = new Sticker;
-    	$data['rs'] = $data['rs']->orderBy('id','desc')->get();
+    	$data['sticker'] = new Sticker;
+    	$data['sticker'] = $data['sticker']->orderBy('updated_at','desc')->paginate(5);
         return view('sticker.index',$data);
     }
+	
+	public function getView($id = null){
+		$data['rs'] = Sticker::find($id);
+    	return view('sticker.view',$data);
+	}
 }

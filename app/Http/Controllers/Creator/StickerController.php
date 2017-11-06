@@ -17,7 +17,7 @@ use Goutte;
 class StickerController extends Controller {
     public function getIndex() {
     	$data['rs'] = new Sticker;
-    	$data['rs'] = $data['rs']->where('user_id',Auth::user()->id)->orderBy('id','desc')->get();
+    	$data['rs'] = $data['rs']->where('user_id',Auth::user()->id)->orderBy('updated_at','desc')->get();
         return view('creator.sticker.index',$data);
     }
 
@@ -178,8 +178,16 @@ class StickerController extends Controller {
 			'hassound'			=> @$json['hasSound'],
 			'stickerresourcetype'			=> @$json['stickerResourceType'],
 		));
+		$model->timestamps = false;
 		$model->save();
 		
+		set_notify('success', trans('message.completeSave'));
+		return Redirect('creator/sticker/index');
+	}
+
+	function getUp($id = null){
+		$model = Sticker::find($id);
+		$model->touch();
 		set_notify('success', trans('message.completeSave'));
 		return Redirect('creator/sticker/index');
 	}

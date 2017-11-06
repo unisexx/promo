@@ -17,7 +17,7 @@ use Goutte;
 class ThemeController extends Controller {
     public function getIndex() {
     	$data['rs'] = new Theme;
-    	$data['rs'] = $data['rs']->where('user_id',Auth::user()->id)->orderBy('id','desc')->get();
+    	$data['rs'] = $data['rs']->where('user_id',Auth::user()->id)->orderBy('updated_at','desc')->get();
         return view('creator.theme.index',$data);
     }
 
@@ -110,8 +110,16 @@ class ThemeController extends Controller {
 			'status'			=> 1,
 			'theme_path' => $theme_path,
 		));
+		$model->timestamps = false;
 		$model->save();
 		
+		set_notify('success', trans('message.completeSave'));
+		return Redirect('creator/theme/index');
+	}
+
+	function getUp($id = null){
+		$model = Theme::find($id);
+		$model->touch();
 		set_notify('success', trans('message.completeSave'));
 		return Redirect('creator/theme/index');
 	}

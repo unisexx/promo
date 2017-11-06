@@ -18,10 +18,20 @@
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
-                <ul class="nav navbar-nav">
+                <!-- <ul class="nav navbar-nav">
                     <li><a href="{{ url('/sticker') }}">สติ๊กเกอร์</a></li>
                     <li><a href="{{ url('/theme') }}">ธีม</a></li>
-                </ul>
+                </ul> -->
+                <div class="col-sm-3 col-md-3">
+	                <form class="navbar-form" role="search">
+						<div class="input-group">
+							<input type="text" class="form-control" placeholder="ค้นหา" name="srch-term" id="srch-term">
+							<div class="input-group-btn">
+								<button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+							</div>
+						</div>
+					</form>
+				</div>
 
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
@@ -36,7 +46,7 @@
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ url('/creator/dashboard') }}"><i class="fa fa-btn fa-gears"></i>จัดการ</a></li>
+                                <li><a href="{{ url('/creator/dashboard') }}"><i class="fa fa-btn fa-gears"></i>จัดการข้อมูล</a></li>
                                 <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>ออกจากระบบ</a></li>
                             </ul>
                         </li>

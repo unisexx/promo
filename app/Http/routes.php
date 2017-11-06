@@ -21,6 +21,7 @@ Route::controller('theme', 'ThemeController');
 Route::auth();
 
 Route::get('/', 'HomeController@index');
+Route::get('home', 'HomeController@index');
 
 // เช็กล็อกอิน
 Route::group(['middleware' => 'auth'], function () {
