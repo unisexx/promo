@@ -212,6 +212,7 @@ return [
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
         'Goutte' => Weidner\Goutte\GoutteFacade::class, // [2]
+        'Carbon' => 'Carbon\Carbon',
 
     ],
 

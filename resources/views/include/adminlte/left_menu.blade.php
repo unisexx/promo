@@ -7,7 +7,7 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="AdminLTE-2.4.2/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          <img src="https://stickershop.line-scdn.net/stickershop/v1/sticker/2021/ANDROID/sticker.png" class="img-circle" alt="User Image" width="160" height="160">
         </div>
         <div class="pull-left info">
           <p>{{ Auth::user()->name }}</p>
@@ -35,6 +35,9 @@
         <li {{ request()->segment(2) == 'dashboard' ? 'class=active' : '' }}><a href="{{ url('creator/dashboard') }}"><i class="fa fa-link"></i> <span>Dashboard</span></a></li>
         <li {{ request()->segment(2) == 'sticker' ? 'class=active' : '' }}><a href="{{ url('creator/sticker') }}"><i class="fa fa-link"></i> <span>Sticker</span></a></li>
         <li {{ request()->segment(2) == 'theme' ? 'class=active' : '' }}><a href="{{ url('creator/theme') }}"><i class="fa fa-link"></i> <span>Theme</span></a></li>
+
+        <li class="header">Page</li>
+        <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>วิธีใช้งานเบื้องต้น</span></a></li>
 
         <!-- <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li> -->
         <!-- <li class="treeview">

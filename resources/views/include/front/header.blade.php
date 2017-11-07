@@ -37,7 +37,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
                     @if (Auth::guest())
-                        <li><a href="{{ url('/login') }}">เข้าสู่ระบบ</a></li>
+                        <li><a href="{{ url('/creator') }}">เข้าสู่ระบบ</a></li>
                         <li><a href="{{ url('/register') }}">สมัครสมาชิก</a></li>
                     @else
                         <li class="dropdown">
