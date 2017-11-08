@@ -23,14 +23,14 @@
                     <li><a href="{{ url('/theme') }}">ธีม</a></li>
                 </ul> -->
                 <div class="col-sm-3 col-md-3">
-	                <form class="navbar-form" role="search">
+                    {{Form::open(array('url'=>'search', 'method'=>'get', 'class'=>'navbar-form','role'=>'search'))}}
 						<div class="input-group">
-							<input type="text" class="form-control" placeholder="ค้นหา" name="srch-term" id="srch-term">
+							<input type="text" class="form-control" placeholder="ค้นหา" name="q" id="srch-term" value="{{ @$_GET['q'] }}">
 							<div class="input-group-btn">
 								<button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
 							</div>
 						</div>
-					</form>
+                    {{Form::close()}}
 				</div>
 
                 <!-- Right Side Of Navbar -->

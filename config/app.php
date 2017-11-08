@@ -155,6 +155,7 @@ return [
         Weidner\Goutte\GoutteServiceProvider::class, // [1]
         Unisharp\Laravelfilemanager\LaravelFilemanagerServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
+        Artesaos\SEOTools\Providers\SEOToolsServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -216,6 +217,11 @@ return [
         'Goutte' => Weidner\Goutte\GoutteFacade::class, // [2]
         'Carbon' => 'Carbon\Carbon',
         'Image' => Intervention\Image\Facades\Image::class,
+        
+        'SEOMeta'   => Artesaos\SEOTools\Facades\SEOMeta::class,
+        'OpenGraph' => Artesaos\SEOTools\Facades\OpenGraph::class,
+        'Twitter'   => Artesaos\SEOTools\Facades\TwitterCard::class,
+        'SEO' => Artesaos\SEOTools\Facades\SEOTools::class,
 
     ],
 

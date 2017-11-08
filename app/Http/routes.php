@@ -22,6 +22,7 @@ Route::auth();
 
 Route::get('/', 'HomeController@index');
 Route::get('home', 'HomeController@index');
+Route::get('search', 'HomeController@search');
 
 // เช็กล็อกอิน
 Route::group(['middleware' => 'auth'], function () {
