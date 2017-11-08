@@ -6,7 +6,7 @@
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <section class="content-header">
+    <!-- <section class="content-header">
       <h1>
         General Form Elements
         <small>Preview</small>
@@ -16,7 +16,7 @@
         <li><a href="#">Forms</a></li>
         <li class="active">General Elements</li>
       </ol>
-    </section>
+    </section> -->
 
     <!-- Main content -->
     <section class="content">
@@ -27,7 +27,7 @@
           <!-- Horizontal Form -->
           <div class="box box-info">
             <div class="box-header with-border">
-              <h3 class="box-title">Horizontal Form</h3>
+              <h3 class="box-title">ธีมไลน์ (เพิ่มรายการ)</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->

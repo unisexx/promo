@@ -65,7 +65,7 @@ return [
     |
     */
 
-    'locale' => 'th',
+    'locale' => 'en',
 
     /*
     |--------------------------------------------------------------------------
@@ -78,7 +78,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'th',
+    'fallback_locale' => 'en',
 
     /*
     |--------------------------------------------------------------------------
@@ -153,6 +153,8 @@ return [
          */
         Collective\Html\HtmlServiceProvider::class,
         Weidner\Goutte\GoutteServiceProvider::class, // [1]
+        Unisharp\Laravelfilemanager\LaravelFilemanagerServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -213,6 +215,7 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
         'Goutte' => Weidner\Goutte\GoutteFacade::class, // [2]
         'Carbon' => 'Carbon\Carbon',
+        'Image' => Intervention\Image\Facades\Image::class,
 
     ],
 

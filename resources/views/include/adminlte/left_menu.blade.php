@@ -30,6 +30,12 @@
 
       <!-- Sidebar Menu -->
       <ul class="sidebar-menu" data-widget="tree">
+        @if(Auth::user()->level == 99)
+          <li class="header">SuperAdmin</li>
+          <!-- Optionally, you can add icons to the links -->
+          <li {{ request()->segment(2) == 'page' ? 'class=active' : '' }}><a href="{{ url('creator/page') }}"><i class="fa fa-link"></i> <span>Page</span></a></li>
+        @endif
+
         <li class="header">Menu</li>
         <!-- Optionally, you can add icons to the links -->
         <li {{ request()->segment(2) == 'dashboard' ? 'class=active' : '' }}><a href="{{ url('creator/dashboard') }}"><i class="fa fa-link"></i> <span>Dashboard</span></a></li>

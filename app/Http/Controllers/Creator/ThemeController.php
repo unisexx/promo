@@ -19,15 +19,6 @@ class ThemeController extends Controller {
     public function getIndex() {
     	$data['rs'] = new Theme;
 		$data['rs'] = $data['rs']->where('user_id',Auth::user()->id)->orderBy('updated_at','desc')->get();
-		
-		// check datetime
-		$lastUpdate = Theme::where('user_id',Auth::user()->id)->orderBy('updated_at','desc')->first();
-		$update = new Carbon($lastUpdate->updated_at);
-		$now = Carbon::now();
-		$difference = $update->diffInMinutes($now);
-
-		// dump($difference);
-
         return view('creator.theme.index',$data);
     }
 

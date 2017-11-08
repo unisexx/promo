@@ -30,7 +30,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::group(['prefix' => 'creator', 'namespace' => 'Creator'], function(){
         Route::controller('dashboard', 'DashboardController');
         Route::controller('sticker', 'StickerController');
-		Route::controller('theme', 'ThemeController');
+        Route::controller('theme', 'ThemeController');
+        Route::controller('page', 'PageController');
     });
 
 }); //middleware
@@ -38,7 +39,7 @@ Route::group(['middleware' => 'auth'], function () {
 Route::get('/test', function() {
     $crawler = Goutte::request('GET', 'https://duckduckgo.com/html/?q=Laravel');
     $crawler->filter('.result__title .result__a')->each(function ($node) {
-      dump($node->text());
+        dump($node->text());
     });
     return view('welcome');
 });
