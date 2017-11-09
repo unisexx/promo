@@ -34,6 +34,10 @@ class PageController extends Controller {
     }
 
     public function postSave(Request $rq, $id = null){
+		$rq->merge([
+            'slug' => generateUniqueSlug($rq->input('title'))
+		]);
+		
 		// Save
 		$model = $id?Page::find($id):new Page;
 		$model->fill($rq->all());

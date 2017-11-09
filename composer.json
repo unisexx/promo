@@ -9,7 +9,6 @@
         "laravel/framework": "5.2.*",
         "laravelcollective/html": "^5.2.0",
         "weidner/goutte": "^1.0",
-        "unisharp/laravel-filemanager": "~1.8",
         "artesaos/seotools": "^0.10.0"
     },
     "require-dev": {

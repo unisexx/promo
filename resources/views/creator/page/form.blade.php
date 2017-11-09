@@ -6,7 +6,7 @@
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <section class="content-header">
+    <!-- <section class="content-header">
       <h1>
         General Form Elements
         <small>Preview</small>
@@ -16,7 +16,7 @@
         <li><a href="#">Forms</a></li>
         <li class="active">General Elements</li>
       </ol>
-    </section>
+    </section> -->
 
     <!-- Main content -->
     <section class="content">
@@ -27,7 +27,7 @@
           <!-- Horizontal Form -->
           <div class="box box-info">
             <div class="box-header with-border">
-              <h3 class="box-title">Horizontal Form</h3>
+              <h3 class="box-title">หน้าเพจ (เพิ่ม/แก้ไข)</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
@@ -66,7 +66,7 @@
   </div>
   <!-- /.content-wrapper -->
 
-  <script src = "{{ URL::to('js/tinymce/js/tinymce/tinymce.min.js') }}"></script>
+  <!-- <script src = "{{ URL::to('js/tinymce/js/tinymce/tinymce.min.js') }}"></script>
   <script>
   var editor_config = {
       path_absolute : "{{ URL::to('/') }}/",
@@ -102,5 +102,25 @@
     };
 
     tinymce.init(editor_config);
-  </script>
+  </script> -->
+
+  <script src = "{{ URL::to('js/tinymce_file_manager/tinymce/tinymce.min.js') }}"></script>
+<script>
+tinymce.init({
+   selector: "textarea.tinymce",theme: "modern",
+	 height: 400,
+   plugins: [
+       "advlist autolink link image lists charmap print preview hr anchor pagebreak",
+       "searchreplace wordcount visualblocks visualchars insertdatetime media nonbreaking",
+       "table contextmenu directionality emoticons paste textcolor responsivefilemanager code" ],
+   toolbar1: "undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | styleselect",
+   toolbar2: "| responsivefilemanager | link unlink anchor | image media | forecolor backcolor  | print preview code ",
+   image_advtab: true ,
+   external_filemanager_path:"js/tinymce_file_manager/filemanager/",
+   filemanager_title:"Responsive Filemanager" ,
+   external_plugins: { "filemanager" : "../filemanager/plugin.min.js"}
+   ,relative_urls:false,
+   remove_script_host:false
+ });
+</script>
 @endsection

@@ -375,3 +375,37 @@ if(!function_exists('smCard2Datepicker'))
 		return $newDate;
 	}
 }
+
+if(!function_exists('clean_url'))
+{
+	function clean_url($text)
+	{	
+		setlocale(LC_ALL,"Thai");
+		$text=strtolower($text);
+		$code_entities_match = array(' ','--','&quot;','!','@','#','$','%','^','&','*','(',')','_','+','{','}','|',':','"','<','>','?','[',']','\\',';',"'",',','.','/','*','+','~','`','=');
+		$code_entities_replace = array('-','-','','','','','','','','','','','','','','','','','','','','','','','','');
+		$text = str_replace($code_entities_match, $code_entities_replace, $text);
+		$text = @ereg_replace('(--)+', '', $text);
+		$text = @ereg_replace('(-)$', '', $text);
+		return $text;
+	} 
+}
+
+if(!function_exists('generateUniqueSlug'))
+{
+	function generateUniqueSlug($title)
+	{
+		//and here you put all your logic that solve the problem
+			$temp = clean_url($title, '-');
+			if(!App\Models\Page::all()->where('slug',$temp)->isEmpty()){
+				$i = 1;
+				$newslug = $temp . '-' . $i;
+				while(!App\Models\Page::all()->where('slug',$newslug)->isEmpty()){
+					$i++;
+					$newslug = $temp . '-' . $i;
+				}
+				$temp =  $newslug;
+			}
+		return $temp;
+	}
+}
