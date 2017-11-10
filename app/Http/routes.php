@@ -15,14 +15,20 @@
     // return view('welcome');
 // });
 
-Route::controller('sticker', 'StickerController');
-Route::controller('theme', 'ThemeController');
+// Route::controller('sticker', 'StickerController');
+// Route::controller('theme', 'ThemeController');
 
 Route::auth();
 
 Route::get('/', 'HomeController@index');
 Route::get('home', 'HomeController@index');
 Route::get('search', 'HomeController@search');
+
+Route::get('/sticker', 'StickerController@getIndex');
+Route::get('/sticker/{param}', 'StickerController@getView');
+
+Route::get('/theme', 'ThemeController@getIndex');
+Route::get('/theme/{param}', 'ThemeController@getView');
 
 // เช็กล็อกอิน
 Route::group(['middleware' => 'auth'], function () {

@@ -52,11 +52,11 @@
 
         
 
-        a{color:#0000de;}
+       a{color:#0000de;}
 
-        a:hover{color: #cc6600; text-decoration: underline;}
+       a:hover{color: #cc6600; text-decoration: underline;}
 
-        a:hover img {
+       a:hover img {
 
 		    opacity: 0.8;
 
@@ -92,11 +92,17 @@
 
         	
 
-        	<div class="col-md-10" style="border-right: 1px solid #eee; border-left: 1px solid #eee;">
+        	<div class="col-md-7" style="border-right: 1px solid #eee; border-left: 1px solid #eee;">
 
     			@yield('content')
 
     		</div>
+
+            <div class="col-6 col-md-2 sidebar-offcanvas" id="sidebar">
+
+                @include('include.front.right_sidebar')
+
+        	</div>
 
     			
 
@@ -108,7 +114,7 @@
 
 	<!-- Main Footer -->
 
-    {{--  @include('include.front.footer') --}}
+  	{{--  @include('include.front.footer') --}}
 
 
 

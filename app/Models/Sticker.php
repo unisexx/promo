@@ -9,7 +9,7 @@ class Sticker extends Model
 {
     // use SoftDeletes;
     
-    protected $fillable = array('sticker_code','name','description','price','head_credit','foot_credit','user_id','status','version','hasanimation','hassound','stickerresourcetype');
+    protected $fillable = array('sticker_code','name','description','price','head_credit','foot_credit','user_id','status','version','hasanimation','hassound','stickerresourcetype','slug');
     
     // protected $dates = ['deleted_at'];
 }

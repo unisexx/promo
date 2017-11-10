@@ -8,7 +8,7 @@
     <div class="panel-body">
         @foreach($sticker as $row)
         	<div class="col-xs-6 col-sm-3 col-md-2">
-        		<a href="#">
+        		<a href="{{ url('sticker/'.$row->slug) }}">
             		<div class="box" style="height:180px;">
             		<div><img src="https://sdl-stickershop.line.naver.jp/products/0/0/{{ $row->version }}/{{ $row->sticker_code }}/android/main.png" width="120"></div>
             		{{ $row->name }}

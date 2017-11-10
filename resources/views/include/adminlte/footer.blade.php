@@ -1,8 +1,8 @@
 <footer class="main-footer">
     <!-- To the right -->
     <div class="pull-right hidden-xs">
-        Anything you want
+        ติดต่อ สอบถาม : line2me.info@gmail.com
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2016 <a href="#">Company</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2017 <a href="{{ url('/') }}">Linepop.in.th</a>.</strong> All rights reserved.
 </footer>

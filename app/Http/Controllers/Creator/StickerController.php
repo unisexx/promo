@@ -60,11 +60,18 @@ class StickerController extends Controller {
 		],[
 			'sticker_code.required' => ' ห้ามเป็นค่าว่าง',
 			'sticker_code.numeric'  => ' เป็นตัวเลขเท่านั้น',
-			'sticker_code.unique'   => ' หมายเลขไอดีของสติ๊กเกอร์นี้มีในระบบแล้ว ถ้าสติ๊กเกอร์ชุดนี้เป็นของคุณ <a href = "#">คลิกที่นี่</a>'
+			'sticker_code.unique'   => ' หมายเลขไอดีของสติ๊กเกอร์นี้มีในระบบแล้ว ถ้าสติ๊กเกอร์ชุดนี้เป็นของคุณ <a href="'.url('creator/page/view/8').'">คลิกที่นี่</a>'
 		]);
 
 		$sticker_code        = $rq->sticker_code;
-		$crawler             = Goutte::request('GET', 'https: //store.line.me/stickershop/product/'.$sticker_code.'/th');
+		$crawler             = Goutte::request('GET', 'https://store.line.me/stickershop/product/'.$sticker_code.'/th');
+		
+		// check node empty
+		if($crawler->filter('div.mdCMN08Img > img')->count() == 0){
+			set_notify('error', "ข้อมูลไม่ถูกต้อง");
+			return redirect()->back();
+		}
+		
 		$image_cover         = $crawler->filter('div.mdCMN08Img > img')->attr('src');
 		$head_credit         = $crawler->filter('p.mdCMN08Copy > a')->text();
 		$sticker_name        = $crawler->filter('h3.mdCMN08Ttl')->text();
@@ -108,6 +115,7 @@ class StickerController extends Controller {
 			'hasanimation'        => @$json['hasAnimation'],
 			'hassound'            => @$json['hasSound'],
 			'stickerresourcetype' => @$json['stickerResourceType'],
+			'slug'                => generateUniqueSlug($sticker_name),
 		));
 		$model->save();
 
@@ -142,7 +150,7 @@ class StickerController extends Controller {
       $rs = Sticker::find($id);
 	  
 		$sticker_code        = $rs->sticker_code;
-		$crawler             = Goutte::request('GET', 'https: //store.line.me/stickershop/product/'.$sticker_code.'/th');
+		$crawler             = Goutte::request('GET', 'https://store.line.me/stickershop/product/'.$sticker_code.'/th');
 		$image_cover         = $crawler->filter('div.mdCMN08Img > img')->attr('src');
 		$head_credit         = $crawler->filter('p.mdCMN08Copy > a')->text();
 		$sticker_name        = $crawler->filter('h3.mdCMN08Ttl')->text();
@@ -186,6 +194,7 @@ class StickerController extends Controller {
 			'hasanimation'        => @$json['hasAnimation'],
 			'hassound'            => @$json['hasSound'],
 			'stickerresourcetype' => @$json['stickerResourceType'],
+			'slug'                => generateUniqueSlug($sticker_name),
 		));
 		$model->timestamps = false;
 		$model->save();

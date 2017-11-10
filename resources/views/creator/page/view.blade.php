@@ -34,7 +34,7 @@
       </div> -->
     </div>
     <div class="box-body">
-      {{ $rs->description }}
+      {!! $rs->description !!}
     </div>
     <!-- /.box-body -->
     <!-- <div class="box-footer">

@@ -32,18 +32,25 @@ class ThemeController extends Controller {
 			'theme_code' => 'required|unique:themes'
 		],[
 			'theme_code.required' => ' ห้ามเป็นค่าว่าง',
-			'theme_code.unique'   => ' หมายเลขไอดีของธีมนี้มีในระบบแล้ว ถ้าธีมชุดนี้เป็นของคุณ <a href = "#">คลิกที่นี่</a>'
+			'theme_code.unique'   => ' หมายเลขไอดีของธีมนี้มีในระบบแล้ว ถ้าธีมชุดนี้เป็นของคุณ <a href="'.url('creator/page/view/8').'">คลิกที่นี่</a>'
 		]);
 
     	$theme_code = $rq->theme_code;
 		$crawler = Goutte::request('GET', 'https://store.line.me/themeshop/product/'.$theme_code.'/th');
+		
+		// check node empty
+		if($crawler->filter('div.mdCMN08Img > img')->count() == 0){
+			set_notify('error', "ข้อมูลไม่ถูกต้อง");
+			return redirect()->back();
+		}
+		
 		$head_credit = $crawler->filter('p.mdCMN08Copy > a')->text();
 		$theme_name = $crawler->filter('h3.mdCMN08Ttl')->text();
 		$theme_description = $crawler->filter('p.mdCMN08Desc')->text();
 		$theme_price = $crawler->filter('p.mdCMN08Price')->text();
 		$foot_credit = $crawler->filter('p.mdCMN09Copy')->text();
 		$image_cover = $crawler->filter('div.mdCMN08Img > img')->attr('src');
-		
+
 		$ex = explode("/", $image_cover);
 		$theme_path = $ex[6]."/".$ex[7]."/".$ex[8]."/".$ex[9]."/".$ex[10];
 		
@@ -60,6 +67,7 @@ class ThemeController extends Controller {
 			'user_id'     => Auth::user()->id,
 			'status'      => 1,
 			'theme_path'  => $theme_path,
+			'slug'        => generateUniqueSlug($theme_name),
 		));
 		$model->save();
 
@@ -118,6 +126,7 @@ class ThemeController extends Controller {
 			'user_id'     => Auth::user()->id,
 			'status'      => 1,
 			'theme_path'  => $theme_path,
+			'slug'        => generateUniqueSlug($theme_name),
 		));
 		$model->timestamps = false;
 		$model->save();

@@ -20,17 +20,21 @@ class StickerController extends Controller {
 		SEO::setDescription('รวมสติ๊กเกอร์ไลน์ขายดี แนะนำ ฮิตๆ ยอดนิยม');
 
     	$data['sticker'] = new Sticker;
-    	$data['sticker'] = $data['sticker']->orderBy('updated_at','desc')->paginate(5);
+    	$data['sticker'] = $data['sticker']->orderBy('updated_at','desc')->paginate(30);
         return view('sticker.index',$data);
     }
 	
-	public function getView($id = null){
-		$data['rs'] = Sticker::find($id);
+	public function getView($param = null){
+		$data['rs'] = Sticker::where('slug', $param)->firstOrFail();
+
+		// สติ๊กเกอร์อื่นๆของ user นี้
+		$data['other'] = new Sticker;
+    	$data['other'] = $data['other']->where('user_id',$data['rs']->user_id)->orderBy('updated_at','desc')->paginate(10);
 		
 		// tracking
-		$array = array_merge(Session::get('track_sticker'), array($data['rs']->id));
-		Session::set('track_sticker', $array);
-		dump(array_unique(Session::get('track_sticker')));
+		// $array = @array_merge(Session::get('track_sticker'), array($data['rs']->id));
+		// Session::set('track_sticker', $array);
+		// dump(array_unique(Session::get('track_sticker')));
 
 		// SEO
 		SEO::setTitle($data['rs']->name.' - สติ๊กเกอร์ไลน์');

@@ -23,8 +23,12 @@ class ThemeController extends Controller {
         return view('theme.index',$data);
     }
 	
-	public function getView($id = null){
-		$data['rs'] = Theme::find($id);
+	public function getView($param = null){
+		$data['rs'] = Theme::where('slug', $param)->firstOrFail();
+
+		// ธีมอื่นๆของ user นี้
+		$data['other'] = new Theme;
+    	$data['other'] = $data['other']->where('user_id',$data['rs']->user_id)->orderBy('updated_at','desc')->paginate(10);
 
 		// SEO
 		SEO::setTitle($data['rs']->name.' - ธีมไลน์');
