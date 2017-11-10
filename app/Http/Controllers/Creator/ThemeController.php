@@ -27,6 +27,14 @@ class ThemeController extends Controller {
     }
 
     public function postSave(Request $rq, $id = null){
+
+		$this->validate($rq,[
+			'theme_code' => 'required|unique:themes'
+		],[
+			'theme_code.required' => ' ห้ามเป็นค่าว่าง',
+			'theme_code.unique'   => ' หมายเลขไอดีของธีมนี้มีในระบบแล้ว ถ้าธีมชุดนี้เป็นของคุณ <a href = "#">คลิกที่นี่</a>'
+		]);
+
     	$theme_code = $rq->theme_code;
 		$crawler = Goutte::request('GET', 'https://store.line.me/themeshop/product/'.$theme_code.'/th');
 		$head_credit = $crawler->filter('p.mdCMN08Copy > a')->text();
@@ -42,16 +50,16 @@ class ThemeController extends Controller {
 		// Save
 		$model = $id ? Theme::find($id) : new Theme;
 		$model->fill(array(
-			'id'				=> $model->id,
-			'theme_code'			=> $theme_code,
-			'name'			=> $theme_name,
-			'description'			=> $theme_description,
-			'price'			=> $theme_price,
-			'head_credit'			=> $head_credit,
-			'foot_credit'			=> $foot_credit,
-			'user_id'			=> Auth::user()->id,
-			'status'			=> 1,
-			'theme_path' => $theme_path,
+			'id'          => $model->id,
+			'theme_code'  => $theme_code,
+			'name'        => $theme_name,
+			'description' => $theme_description,
+			'price'       => $theme_price,
+			'head_credit' => $head_credit,
+			'foot_credit' => $foot_credit,
+			'user_id'     => Auth::user()->id,
+			'status'      => 1,
+			'theme_path'  => $theme_path,
 		));
 		$model->save();
 

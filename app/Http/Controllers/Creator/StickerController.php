@@ -55,14 +55,22 @@ class StickerController extends Controller {
 
     public function postSave(Request $rq, $id = null){
 
-		$sticker_code = $rq->sticker_code;
-		$crawler = Goutte::request('GET', 'https://store.line.me/stickershop/product/'.$sticker_code.'/th');
-		$image_cover = $crawler->filter('div.mdCMN08Img > img')->attr('src');
-		$head_credit = $crawler->filter('p.mdCMN08Copy > a')->text();
-		$sticker_name = $crawler->filter('h3.mdCMN08Ttl')->text();
+		$this->validate($rq,[
+			'sticker_code' => 'required|numeric|unique:stickers'
+		],[
+			'sticker_code.required' => ' ห้ามเป็นค่าว่าง',
+			'sticker_code.numeric'  => ' เป็นตัวเลขเท่านั้น',
+			'sticker_code.unique'   => ' หมายเลขไอดีของสติ๊กเกอร์นี้มีในระบบแล้ว ถ้าสติ๊กเกอร์ชุดนี้เป็นของคุณ <a href = "#">คลิกที่นี่</a>'
+		]);
+
+		$sticker_code        = $rq->sticker_code;
+		$crawler             = Goutte::request('GET', 'https: //store.line.me/stickershop/product/'.$sticker_code.'/th');
+		$image_cover         = $crawler->filter('div.mdCMN08Img > img')->attr('src');
+		$head_credit         = $crawler->filter('p.mdCMN08Copy > a')->text();
+		$sticker_name        = $crawler->filter('h3.mdCMN08Ttl')->text();
 		$sticker_description = $crawler->filter('p.mdCMN08Desc')->text();
-		$sticker_price = $crawler->filter('p.mdCMN08Price')->text();
-		$foot_credit = $crawler->filter('p.mdCMN09Copy')->text();
+		$sticker_price       = $crawler->filter('p.mdCMN08Price')->text();
+		$foot_credit         = $crawler->filter('p.mdCMN09Copy')->text();
 
 		// dump($image_cover);
 		// dump($head_credit);
@@ -87,19 +95,19 @@ class StickerController extends Controller {
 		// Save
 		$model = $id ? Sticker::find($id) : new Sticker;
 		$model->fill(array(
-			'id'				=> $model->id,
-			'sticker_code'			=> $sticker_code,
-			'name'			=> $sticker_name,
-			'description'			=> $sticker_description,
-			'price'			=> $sticker_price,
-			'head_credit'			=> $head_credit,
-			'foot_credit'			=> $foot_credit,
-			'user_id'			=> Auth::user()->id,
-			'status'			=> 1,
-			'version'			=> $version,
-			'hasanimation'			=> $json['hasAnimation'],
-			'hassound'			=> $json['hasSound'],
-			'stickerresourcetype'			=> $json['stickerResourceType'],
+			'id'                  => $model->id,
+			'sticker_code'        => $sticker_code,
+			'name'                => $sticker_name,
+			'description'         => $sticker_description,
+			'price'               => $sticker_price,
+			'head_credit'         => $head_credit,
+			'foot_credit'         => $foot_credit,
+			'user_id'             => Auth::user()->id,
+			'status'              => 1,
+			'version'             => $version,
+			'hasanimation'        => @$json['hasAnimation'],
+			'hassound'            => @$json['hasSound'],
+			'stickerresourcetype' => @$json['stickerResourceType'],
 		));
 		$model->save();
 
@@ -133,14 +141,14 @@ class StickerController extends Controller {
 	public function getUpdate($id = null){
       $rs = Sticker::find($id);
 	  
-		$sticker_code = $rs->sticker_code;
-		$crawler = Goutte::request('GET', 'https://store.line.me/stickershop/product/'.$sticker_code.'/th');
-		$image_cover = $crawler->filter('div.mdCMN08Img > img')->attr('src');
-		$head_credit = $crawler->filter('p.mdCMN08Copy > a')->text();
-		$sticker_name = $crawler->filter('h3.mdCMN08Ttl')->text();
+		$sticker_code        = $rs->sticker_code;
+		$crawler             = Goutte::request('GET', 'https: //store.line.me/stickershop/product/'.$sticker_code.'/th');
+		$image_cover         = $crawler->filter('div.mdCMN08Img > img')->attr('src');
+		$head_credit         = $crawler->filter('p.mdCMN08Copy > a')->text();
+		$sticker_name        = $crawler->filter('h3.mdCMN08Ttl')->text();
 		$sticker_description = $crawler->filter('p.mdCMN08Desc')->text();
-		$sticker_price = $crawler->filter('p.mdCMN08Price')->text();
-		$foot_credit = $crawler->filter('p.mdCMN09Copy')->text();
+		$sticker_price       = $crawler->filter('p.mdCMN08Price')->text();
+		$foot_credit         = $crawler->filter('p.mdCMN09Copy')->text();
 		
 		// dump($image_cover);
 		// dump($head_credit);
@@ -165,19 +173,19 @@ class StickerController extends Controller {
 		// Save
 		$model = $id ? Sticker::find($id) : new Sticker;
 		$model->fill(array(
-			'id'				=> $rs->id,
-			'sticker_code'			=> $sticker_code,
-			'name'			=> $sticker_name,
-			'description'			=> $sticker_description,
-			'price'			=> $sticker_price,
-			'head_credit'			=> $head_credit,
-			'foot_credit'			=> $foot_credit,
-			'user_id'			=> Auth::user()->id,
-			'status'			=> 1,
-			'version'			=> $version,
-			'hasanimation'			=> @$json['hasAnimation'],
-			'hassound'			=> @$json['hasSound'],
-			'stickerresourcetype'			=> @$json['stickerResourceType'],
+			'id'                  => $rs->id,
+			'sticker_code'        => $sticker_code,
+			'name'                => $sticker_name,
+			'description'         => $sticker_description,
+			'price'               => $sticker_price,
+			'head_credit'         => $head_credit,
+			'foot_credit'         => $foot_credit,
+			'user_id'             => Auth::user()->id,
+			'status'              => 1,
+			'version'             => $version,
+			'hasanimation'        => @$json['hasAnimation'],
+			'hassound'            => @$json['hasSound'],
+			'stickerresourcetype' => @$json['stickerResourceType'],
 		));
 		$model->timestamps = false;
 		$model->save();

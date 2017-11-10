@@ -33,15 +33,28 @@
             <!-- form start -->
             {{Form::open(array('url'=>'creator/sticker/save', 'method'=>'post', 'class'=>'form-horizontal','id'=>'stickerFrm'))}}
               <div class="box-body">
+
+                @if(count($errors))
+                  <div class="alert alert-danger">
+                    <strong>อุ๊บส์!</strong> ไม่สามารถบันทึกข้อมูลได้เนื่องจาก...
+                    <br/>
+                    <ul>
+                      @foreach($errors->all() as $error)
+                      <li>{!! $error !!}</li>
+                      @endforeach
+                    </ul>
+                  </div>
+                @endif
+
                 <div class="form-group">
-                  <label for="inputEmail3" class="col-sm-2 control-label">ค้นหาข้อมูล</label>
+                  <label for="inputSticker_code" class="col-sm-2 control-label">ค้นหาข้อมูล</label>
                   <div class="col-sm-10">
-                  <div class="input-group">
+                  <div class="input-group {{ $errors->has('sticker_code') ? 'has-error' : '' }}">
                     <span class="input-group-addon" style="background-color:#f1f1f1;">https://store.line.me/stickershop/product/</span>
-                    <input error_element="error_sticker_code" type="text" class="form-control" name="sticker_code" placeholder="หมายเลขไอดีของสติ๊กเกอร์" value="">
+                    <input id="inputSticker_code" type="text" class="form-control" name="sticker_code" placeholder="หมายเลขไอดีของสติ๊กเกอร์" value="{{ old('sticker_code') }}">
                     <span class="input-group-addon" style="background-color:#f1f1f1;">/th</span>
                   </div>
-                  <div id="error_sticker_code"></div>
+                  <span class="text-danger">{!! $errors->first('sticker_code') !!}</span>
                   </div>
                 </div>
               </div>
