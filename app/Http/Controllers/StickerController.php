@@ -11,6 +11,7 @@ use App\Models\Sticker;
 
 use DB;
 use SEO;
+use Session;
 
 class StickerController extends Controller {
     public function getIndex() {
@@ -26,6 +27,11 @@ class StickerController extends Controller {
 	public function getView($id = null){
 		$data['rs'] = Sticker::find($id);
 		
+		// tracking
+		$array = array_merge(Session::get('track_sticker'), array($data['rs']->id));
+		Session::set('track_sticker', $array);
+		dump(array_unique(Session::get('track_sticker')));
+
 		// SEO
 		SEO::setTitle($data['rs']->name.' - สติ๊กเกอร์ไลน์');
 		SEO::setDescription($data['rs']->description);

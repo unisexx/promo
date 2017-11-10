@@ -108,16 +108,16 @@ class ThemeController extends Controller {
 		// Save
 		$model = $id ? Theme::find($id) : new Theme;
 		$model->fill(array(
-			'id'				=> $model->id,
-			'theme_code'			=> $theme_code,
-			'name'			=> $theme_name,
-			'description'			=> $theme_description,
-			'price'			=> $theme_price,
-			'head_credit'			=> $head_credit,
-			'foot_credit'			=> $foot_credit,
-			'user_id'			=> Auth::user()->id,
-			'status'			=> 1,
-			'theme_path' => $theme_path,
+			'id'          => $model->id,
+			'theme_code'  => $theme_code,
+			'name'        => $theme_name,
+			'description' => $theme_description,
+			'price'       => $theme_price,
+			'head_credit' => $head_credit,
+			'foot_credit' => $foot_credit,
+			'user_id'     => Auth::user()->id,
+			'status'      => 1,
+			'theme_path'  => $theme_path,
 		));
 		$model->timestamps = false;
 		$model->save();

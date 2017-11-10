@@ -54,5 +54,10 @@ class PageController extends Controller {
 		}
 		return Redirect('creator/page/index');
 	}
+
+	public function getView($id){
+		$data['rs'] = Page::find($id);
+		return view('creator.page.view',$data);
+	}
 	
 }

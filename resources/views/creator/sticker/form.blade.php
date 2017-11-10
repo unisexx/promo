@@ -54,7 +54,6 @@
                     <input id="inputSticker_code" type="text" class="form-control" name="sticker_code" placeholder="หมายเลขไอดีของสติ๊กเกอร์" value="{{ old('sticker_code') }}">
                     <span class="input-group-addon" style="background-color:#f1f1f1;">/th</span>
                   </div>
-                  <span class="text-danger">{!! $errors->first('sticker_code') !!}</span>
                   </div>
                 </div>
               </div>

@@ -54,7 +54,6 @@
                     <input id="inputTheme_code" type="text" class="form-control" name="theme_code" placeholder="ไอดีของธีม" value="{{ old('theme_code') }}">
                     <span class="input-group-addon" style="background-color:#f1f1f1;">/th</span>
                   </div>
-                  <span class="text-danger">{!! $errors->first('theme_code') !!}</span>
                   </div>
                 </div>
               </div>
