@@ -9,7 +9,7 @@
 	<small>{{ $rs->head_credit }}</small>
 	<h1>{{ $rs->name }}</h2>
 	<p>{{ $rs->description }}</p>
-	<p>{{ $rs->price }}</p>
+	<p class="price">{{ $rs->price }}</p>
 </div>
 
 <br clear="all">
@@ -20,6 +20,7 @@
     <img class="img-responsive" src="https://shop.line-scdn.net/themeshop/v1/products/{{ $rs->theme_path }}/ANDROID/th/preview_00{{$i}}_720x1232.png" alt="สติ๊กเกอร์ไลน์ {{ $rs->name }}">
 </div>
 @endfor
+<br clear="all">
 
 @endsection
 
@@ -40,11 +41,5 @@
 		</a>
 		</div>
 	@endforeach
-
-	<style>
-		.mediablk{margin-top:5px; border-bottom:1px dashed #ddd; padding-bottom:5px;}
-		.h2sidebar{font-size:10pt; line-height: 1.2; background:#4db34d; color:#fff; padding:10px; margin-top:0px; font-weight:bold;}
-		.h3sidebar{font-size:10pt; line-height: 1.2;}
-	</style>
 
 @endsection

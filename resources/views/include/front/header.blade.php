@@ -18,11 +18,11 @@
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
-                <!-- <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav">
                     <li><a href="{{ url('/sticker') }}">สติ๊กเกอร์</a></li>
                     <li><a href="{{ url('/theme') }}">ธีม</a></li>
-                </ul> -->
-                <div class="col-sm-3 col-md-3">
+                </ul>
+                <div class="col-sm-5 col-md-4">
                     {{Form::open(array('url'=>'search', 'method'=>'get', 'class'=>'navbar-form','role'=>'search'))}}
 						<div class="input-group">
 							<input type="text" class="form-control" placeholder="ค้นหา" name="q" id="srch-term" value="{{ @$_GET['q'] }}">

@@ -2,51 +2,82 @@
 
 @section('content')
 
+			<div class="row">
+				<!-- /.col -->
+				<div class="col-md-12">
+					<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+						<ol class="carousel-indicators">
+						<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+						<li data-target="#carousel-example-generic" data-slide-to="1" class=""></li>
+						<!-- <li data-target="#carousel-example-generic" data-slide-to="2" class=""></li> -->
+						</ol>
+						<div class="carousel-inner">
+						<div class="item active">
+							<img src="https://i.imgur.com/M1FvcTu.png" alt="linepop.in.th">
+						</div>
+						<div class="item">
+							<img src="https://i.imgur.com/4w8wCUE.png" alt="linepop.in.th">
+						</div>
+						<!-- <div class="item">
+							<img src="http://placehold.it/945x270/f39c12/ffffff&text=line.pop.in.th" alt="Third slide">
+						</div> -->
+						</div>
+						<a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+						<span class="fa fa-angle-left"></span>
+						</a>
+						<a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+						<span class="fa fa-angle-right"></span>
+						</a>
+					</div>
+				</div>
+				<!-- /.col -->
+			</div><br>
 
-        	
-            <div class="panel panel-default">
-                <div class="panel-heading col-container">สติ๊กเกอร์</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="box box-default">
+						<div class="box-header with-border">
+						<h3 class="box-title">สติ๊กเกอร์</h3>
+						<!-- /.box-tools -->
+						</div>
+						<!-- /.box-header -->
+						<div class="box-body">
+						@foreach($sticker as $row)
+							<div class="col-xs-4 col-sm-3 col-md-2 stickerBlk">
+								<a href="{{ url('sticker/'.$row->slug) }}">
+									<div><img class="img-responsive" src="https://sdl-stickershop.line.naver.jp/products/0/0/{{ $row->version }}/{{ $row->sticker_code }}/android/main.png"></div>
+									<div>{{ $row->name }}</div>
+								</a>
+							</div>
+						@endforeach
+						</div>
+						<!-- /.box-body -->
+					</div>
+					<!-- /.box -->
+				</div>
+			</div>
 
-                <div class="panel-body">
-                    @foreach($sticker as $row)
-                    	<div class="col-xs-6 col-sm-3 col-md-2">
-                    		<a href="{{ url('sticker/'.$row->slug) }}">
-	                    		<div class="box" style="height:180px;">
-	                    		<div><img src="https://sdl-stickershop.line.naver.jp/products/0/0/{{ $row->version }}/{{ $row->sticker_code }}/android/main.png" width="120"></div>
-	                    		{{ $row->name }}
-	                    		</div>
-                    		</a>
-                    	</div>
-                    @endforeach
-                </div>
-            </div>
-            
-            <div class="panel panel-default">
-                <div class="panel-heading">ธีม</div>
-
-                <div class="panel-body">
-                    @foreach($theme as $row)
-                    	<div class="col-xs-6 col-sm-3 col-md-2">
-                    		<a href="{{ url('theme/'.$row->slug) }}">
-	                    		<div class="box" style="height:210px;">
-	                    		<div><img src="https://shop.line-scdn.net/themeshop/v1/products/{{ $row->theme_path }}/WEBSTORE/icon_136x190.png" width="120"></div>
-	                    		{{ $row->name }}
-	                    		</div>
-                    		</a>
-                    	</div>
-                    @endforeach
-                </div>
-            </div>
-            
-			<style>
-				.panel {
-					border: 0;
-				}
-
-				.table > thead > tr > th, .table > thead > tr > td {
-					border: 0;
-				}
-			</style>
-        
-
+			<div class="row">
+				<div class="col-md-12">
+					<div class="box box-default">
+						<div class="box-header with-border">
+						<h3 class="box-title">ธีม</h3>
+						<!-- /.box-tools -->
+						</div>
+						<!-- /.box-header -->
+						<div class="box-body">
+						@foreach($theme as $row)
+							<div class="col-xs-4 col-sm-3 col-md-2 themeBlk">
+								<a href="{{ url('theme/'.$row->slug) }}">
+									<div><img class="img-responsive" src="https://shop.line-scdn.net/themeshop/v1/products/{{ $row->theme_path }}/WEBSTORE/icon_136x190.png"></div>
+									<div>{{ $row->name }}</div>
+								</a>
+							</div>
+						@endforeach
+						</div>
+						<!-- /.box-body -->
+					</div>
+					<!-- /.box -->
+				</div>
+			</div>
 @endsection

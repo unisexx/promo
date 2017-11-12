@@ -14,26 +14,44 @@ use DB;
 use Auth;
 
 class PageController extends Controller {
-	public function __construct()
-    {
-        if(Auth::user()->level != 99){
+	// public function __construct()
+    // {
+    //     if(Auth::user()->level != 99){
+	// 		set_notify('error', trans('คุณไม่มีสิทธิ์เข้าใช้งาน'));
+	// 		return back()->send();
+	// 	}
+	// }
+	
+    public function getIndex() {
+		//permission
+		if(Auth::user()->level != 99){
 			set_notify('error', trans('คุณไม่มีสิทธิ์เข้าใช้งาน'));
 			return back()->send();
 		}
-	}
-	
-    public function getIndex() {
+
     	$data['rs'] = new Page;
 		$data['rs'] = $data['rs']->orderBy('id','desc')->get();
         return view('creator.page.index',$data);
     }
 
     public function getForm($id = null){
+		//permission
+		if(Auth::user()->level != 99){
+			set_notify('error', trans('คุณไม่มีสิทธิ์เข้าใช้งาน'));
+			return back()->send();
+		}
+
 		$data['rs'] = Page::find($id);
         return view('creator.page.form',$data);
     }
 
     public function postSave(Request $rq, $id = null){
+		//permission
+		if(Auth::user()->level != 99){
+			set_notify('error', trans('คุณไม่มีสิทธิ์เข้าใช้งาน'));
+			return back()->send();
+		}
+
 		$rq->merge([
             'slug' => generateUniqueSlug($rq->input('title'))
 		]);
@@ -48,6 +66,12 @@ class PageController extends Controller {
     }
 
 	public function getDelete($id = null) {
+		//permission
+		if(Auth::user()->level != 99){
+			set_notify('error', trans('คุณไม่มีสิทธิ์เข้าใช้งาน'));
+			return back()->send();
+		}
+		
 		if($rs = Page::find($id)) {
 			$rs->delete(); // Delete process
 			set_notify('error', trans('message.completeDelete'));
