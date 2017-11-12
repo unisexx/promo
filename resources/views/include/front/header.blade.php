@@ -27,7 +27,7 @@
 						<div class="input-group">
 							<input type="text" class="form-control" placeholder="ค้นหา" name="q" id="srch-term" value="{{ @$_GET['q'] }}">
 							<div class="input-group-btn">
-								<button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+								<button class="btn bg-green" type="submit"><i class="glyphicon glyphicon-search"></i></button>
 							</div>
 						</div>
                     {{Form::close()}}

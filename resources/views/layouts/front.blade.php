@@ -22,8 +22,8 @@
 	</div>
 	
 	<!-- Main Footer -->
-    {{--  @include('include.front.footer') --}}
-
+    @include('include.front.footer')
+    
     <!-- JavaScripts -->
     @include('include.front.js')
 </body>

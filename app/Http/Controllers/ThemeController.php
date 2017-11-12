@@ -28,7 +28,7 @@ class ThemeController extends Controller {
 
 		// ธีมอื่นๆของ user นี้
 		$data['other'] = new Theme;
-    	$data['other'] = $data['other']->where('user_id',$data['rs']->user_id)->orderBy('updated_at','desc')->paginate(10);
+		$data['other'] = $data['other']->whereNotIn('id',[$data['rs']->id])->inRandomOrder()->take(10)->get();
 
 		// SEO
 		SEO::setTitle($data['rs']->name.' - ธีมไลน์');

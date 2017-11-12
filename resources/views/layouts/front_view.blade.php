@@ -15,17 +15,17 @@
     		<!-- <div class="col-6 col-md-2 sidebar-offcanvas" id="sidebar">
                 @include('include.front.sidebar')
         	</div> -->
-        	<div class="col-md-7 col-md-offset-2" style="border-right: 1px solid #eee; border-left: 1px solid #eee;">
+        	<div class="col-md-7 col-sm-9 col-md-offset-2" style="border-right: 1px solid #eee; border-left: 1px solid #eee;">
     			@yield('content')
     		</div>
-            <div class="col-6 col-md-2 sidebar-offcanvas" id="sidebar">
+            <div class="col-6 col-sm-3 col-md-2 sidebar-offcanvas" id="sidebar">
                 @include('include.front.right_sidebar')
         	</div>
         </div>
 	</div>
 	
 	<!-- Main Footer -->
-  	{{--  @include('include.front.footer') --}}
+  	@include('include.front.footer')
 
     <!-- JavaScripts -->
     @include('include.front.js')

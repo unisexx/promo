@@ -43,16 +43,21 @@
         p.price{font-size:14px !important; font-weight:bold !important;}
 
         .carousel-indicators {bottom: -10px !important;}
+        .stickerBlk{height:100px !important;}
     }
 
     /* Small devices (tablets, 768px and up) */
     @media screen and (max-width: 768px){}
 
     /* Medium devices (desktops, 992px and up) */
-    @media screen and (max-width: 992px){}
+    @media screen and (min-width: 992px){
+        .stickerBlk{height:140px !important;}
+    }
 
     /* Large devices (large desktops, 1200px and up) */
-    @media screen and (max-width: 1200px){}
+    @media screen and (min-width: 1200px){
+        .stickerBlk{height:170px !important;}
+    }
 
     body {
         font-size: 11pt;
@@ -71,7 +76,7 @@
     }
     p.price{font-size: 32px; color: #00b84f;}
     .mediablk{margin-top:5px; border-bottom:1px dashed #ddd; padding-bottom:5px;}
-    .h2sidebar{font-size:10pt; line-height: 1.2; background:#4db34d; color:#fff; padding:10px; margin-top:0px; font-weight:bold;}
+    .h2sidebar{font-size:10pt; line-height: 1.2; padding:10px; margin-top:0px; font-weight:bold;}
     .h3sidebar{font-size:10pt; line-height: 1.2;}
     .panel {
         border: 0;
@@ -80,4 +85,14 @@
         border: 0;
     }
     .carousel-indicators {bottom: 0px;}
+    .foter {
+        margin: 20px 0px 0px 0px;
+        text-align: center;
+        font-size: 10pt;
+        line-height: 160%;
+        background: #eeeeee;
+        /* border-bottom: 1px solid #888888; */
+        /* border-right: 1px solid #888888; */
+        padding: 4px 10px 2px 10px;
+    }
 </style>

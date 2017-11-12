@@ -29,7 +29,7 @@ class StickerController extends Controller {
 
 		// สติ๊กเกอร์อื่นๆของ user นี้
 		$data['other'] = new Sticker;
-    	$data['other'] = $data['other']->where('user_id',$data['rs']->user_id)->orderBy('updated_at','desc')->paginate(10);
+		$data['other'] = $data['other']->whereNotIn('id',[$data['rs']->id])->inRandomOrder()->take(10)->get();
 		
 		// tracking
 		// $array = @array_merge(Session::get('track_sticker'), array($data['rs']->id));
