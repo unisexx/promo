@@ -9,7 +9,8 @@
         "laravel/framework": "5.2.*",
         "laravelcollective/html": "^5.2.0",
         "weidner/goutte": "^1.0",
-        "artesaos/seotools": "^0.10.0"
+        "artesaos/seotools": "^0.10.0",
+        "arrilot/laravel-widgets": "^3.8"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
