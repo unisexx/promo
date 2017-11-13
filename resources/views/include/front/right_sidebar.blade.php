@@ -1,1 +1,2 @@
-@yield('sidebar')
+@widget('otherSticker')
+@widget('otherTheme')

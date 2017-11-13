@@ -2,10 +2,10 @@
 
 namespace App\Widgets;
 
-use App\Models\Sticker;
+use App\Models\Theme;
 use Arrilot\Widgets\AbstractWidget;
 
-class OtherSticker extends AbstractWidget
+class OtherTheme extends AbstractWidget
 {
     /**
      * The configuration array.
@@ -29,8 +29,8 @@ class OtherSticker extends AbstractWidget
     public function run()
     {
         //
-        $data['other'] = new Sticker;
+        $data['other'] = new Theme;
 		$data['other'] = $data['other']->inRandomOrder()->take(4)->get();
-        return view('widgets.other_sticker', $data);
+        return view('widgets.other_theme', $data);
     }
 }

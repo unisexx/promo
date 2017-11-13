@@ -43,7 +43,6 @@
         p.price{font-size:14px !important; font-weight:bold !important;}
 
         .carousel-indicators {bottom: -10px !important;}
-        .stickerBlk{height:100px !important;}
     }
 
     /* Small devices (tablets, 768px and up) */
@@ -51,12 +50,10 @@
 
     /* Medium devices (desktops, 992px and up) */
     @media screen and (min-width: 992px){
-        .stickerBlk{height:140px !important;}
     }
 
     /* Large devices (large desktops, 1200px and up) */
     @media screen and (min-width: 1200px){
-        .stickerBlk{height:170px !important;}
     }
 
     body {
@@ -67,7 +64,7 @@
     .fa-btn {
         margin-right: 6px;
     }
-    a{color:#0000de;}
+    a{color:#737373;}
     a:hover{color: #cc6600; text-decoration: underline;}
     a:hover img {
         opacity: 0.8;
@@ -76,11 +73,10 @@
     }
     p.price{font-size: 32px; color: #00b84f;}
     .mediablk{margin-top:5px; border-bottom:1px dashed #ddd; padding-bottom:5px;}
+    .mediablk .panel{margin-bottom:0px;}
+    .mediablk .panel-body h2{text-align:left;}
     .h2sidebar{font-size:10pt; line-height: 1.2; padding:10px; margin-top:0px; font-weight:bold;}
     .h3sidebar{font-size:10pt; line-height: 1.2;}
-    .panel {
-        border: 0;
-    }
     .table > thead > tr > th, .table > thead > tr > td {
         border: 0;
     }
@@ -95,4 +91,31 @@
         /* border-right: 1px solid #888888; */
         padding: 4px 10px 2px 10px;
     }
+    
+    {{-- flex-box --}}
+    .panel-body h2 {
+		text-align: center;
+		line-height: 1.4;
+    	height: 38px;
+		font-size: 14px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		display: block;
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+		margin-top:10px;
+	}
+
+	/* not requied only for demo * */
+	.row [class*='col-'] {
+	background-colo: #cceeee;
+	background-clip: content-box;
+	}
+	.panel {
+		height: 100%;
+		border: none !important;
+		box-shadow: none !important;
+	}
+    .panel-body{padding:0px !important;}
 </style>
