@@ -34,10 +34,10 @@ class HomeController extends Controller
         SEO::setDescription('รวมสติ๊กเกอร์ไลน์ขายดี แนะนำ ฮิตๆ ยอดนิยม');
 
     	$data['sticker'] = new Sticker;
-    	$data['sticker'] = $data['sticker']->orderBy('updated_at','desc')->get();
+    	$data['sticker'] = $data['sticker']->orderBy('updated_at','desc')->take(12)->get();
 		
 		$data['theme'] = new Theme;
-    	$data['theme'] = $data['theme']->orderBy('updated_at','desc')->get();
+    	$data['theme'] = $data['theme']->orderBy('updated_at','desc')->take(12)->get();
         return view('home',$data);
     }
 

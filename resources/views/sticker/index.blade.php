@@ -12,15 +12,19 @@
 		<!-- /.box-header -->
 		<div class="box-body">
 		@foreach($sticker as $row)
-			<div class="col-xs-4 col-sm-3 col-md-2">
+			<div class="col-xs-4 col-sm-3 col-md-2 stickerBlk">
 				<a href="{{ url('sticker/'.$row->slug) }}">
 					<div><img class="img-responsive" src="https://sdl-stickershop.line.naver.jp/products/0/0/{{ $row->version }}/{{ $row->sticker_code }}/android/main.png"></div>
-					{{ $row->name }}
+					<div>{{ $row->name }}</div>
 				</a>
 			</div>
 		@endforeach
 		</div>
 		<!-- /.box-body -->
+		<div class="box-footer text-center">
+			{{ $sticker->appends(@$_GET)->render() }}
+		</div>
+		<!-- /.box-footer -->
 	</div>
 	<!-- /.box -->
 </div>
