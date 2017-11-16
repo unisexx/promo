@@ -43,6 +43,12 @@
         p.price{font-size:14px !important; font-weight:bold !important;}
 
         .carousel-indicators {bottom: -10px !important;}
+
+        .MdIcoPlay_b {
+            width: 24px !important;
+            height: 24px  !important;
+            background-position: -483px -190px  !important;
+        }
     }
 
     /* Small devices (tablets, 768px and up) */
@@ -118,4 +124,33 @@
 		box-shadow: none !important;
 	}
     .panel-body{padding:0px !important;}
+    .img-cover{position: relative;}
+
+    /* icon */
+    .img-cover .MdIcoSound_b, .img-cover .MdIcoPlay_b, .img-cover .MdIcoAni_b, .img-cover .MdIcoFlash_b, .img-cover .MdIcoFlashAni_b,.img-cover .MdIcoPlay_m {
+        z-index: 9;
+        position: absolute;
+        bottom: 0px;
+        right: 0px;
+    }
+    .MdIcoPlay_b {
+        width: 48px;
+        height: 48px;
+        background-position: -432px -115px;
+    }
+    .MdIcoPlay_m {
+        width: 24px;
+        height: 24px;
+        background-position: -483px -190px;
+    }
+    .MdGHD01Logo a, .MdGHD02Search, .MdGFT03Lang .mdGFT03NewSelect01 .mdGFT03Label::before, .MdBtnClose01, .MdIcoCharge01, .MdIcoNew01, .MdIcoNew02, .MdIcoNew03, .MdIcoNew04, .MdIcoMore01, .MdIcoSearch01, .MdIcoSound_b, .MdIcoSound_m, .MdIcoSound_s, .MdIcoPlay_b, .MdIcoPlay_m, .MdIcoPlay_s, .MdIcoAni_s, .MdIcoAni_m, .MdIcoAni_b, .MdIcoFlash_s, .MdIcoFlash_m, .MdIcoFlash_b, .MdIcoFlashAni_s, .MdIcoFlashAni_m, .MdIcoFlashAni_b, .MdIcoWishlist01, .MdBtnIphone01, .MdBtnAndroid01, .MdIcoRadio01 .mdIcoRadio01Ico, .MdIcoWish01 input[type="checkbox"] + span, .MdTxt01MoreLink a::after, .MdCMN03Bnr .mdMN03Pagination span, .MdCMN03Bnr .mdCMN03BtnLi a, .MdCMN10Notice .mdCMN10Head .mdCMN10HeadShare a, .MdCMN11Event .mdCMN11EventH2, .MdCMN13SelectBox .mdCMN13NewSelect01 .mdCMN13Label::before, .MdCMN13SelectBox .mdCMN13NewSelect02 .mdCMN13Label::before, .MdCMN13SelectBox .mdCMN13NewSelect03 .mdCMN13Label::before, .MdCMN13SelectBox .mdCMN13NewSelect04 .mdCMN13Label::before, .MdCMN15List .mdCMN15PointIco, .MdCMN18MyInfo .myCMN18EditProfile .myCMN18Shadow, .MdCMN22Share a, .MdCMN25Setting .mdCMN25Ul li::before, .MdCMN29OaItem.mdCMN29List .MdIcoNew_30, .MdCMN33OaSelectBox .mdCMN33NewSelect01 .mdCMN33Label::before {
+        background-image: url({{ url('image/ico_map.png') }});
+    }
+    .MdGHD01Logo a, .MdGHD02Search, .MdLYR08List .mdLYR08Img .mdLYR08Shadow, .MdIcoNew01, .MdIcoNew02, .MdIcoNew03, .MdIcoNew04, .MdIcoSound_b, .MdIcoSound_m, .MdIcoSound_s, .MdIcoPlay_b, .MdIcoPlay_m, .MdIcoPlay_s, .MdIcoAni_s, .MdIcoAni_m, .MdIcoAni_b, .MdIcoFlash_s, .MdIcoFlash_m, .MdIcoFlash_b, .MdIcoFlashAni_s, .MdIcoFlashAni_m, .MdIcoFlashAni_b, .MdIcoRadio01 .mdIcoRadio01Ico, .MdIcoRadio02 .mdIcoRadio02Ico, .MdIcoCheck01 .mdIcoCheck01Ico, .MdCMN03Bnr .mdMN03Pagination span, .MdCMN11Event .mdCMN11EventH2, .MdCMN18MyInfo .myCMN18EditProfile .myCMN18Shadow {
+        display: block;
+        overflow: hidden;
+        background-repeat: no-repeat;
+        text-align: left;
+        text-indent: -9999px;
+    }
 </style>
