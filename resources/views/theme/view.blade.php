@@ -10,6 +10,7 @@
 	<h1>{{ $rs->name }}</h2>
 	<p>{{ $rs->description }}</p>
 	<p class="price">{{ $rs->price }}</p>
+	@widget('socialShareBtn')
 </div>
 
 <br clear="all">
@@ -21,25 +22,5 @@
 </div>
 @endfor
 <br clear="all">
-
-@endsection
-
-
-@section('sidebar')
-
-	<h2 class="h2sidebar text-center bg-black">ธีมชุดอื่นๆ</h2>
-
-	@foreach($other as $row)
-		<div class="media mediablk col-md-12 col-xs-6">
-		<a href="{{ url('theme/'.$row->slug) }}">
-		<div class="media-left media-top">
-			<img src="https://shop.line-scdn.net/themeshop/v1/products/{{ $row->theme_path }}/WEBSTORE/icon_136x190.png" width="60" height="84">
-		</div>
-		<div class="media-body">
-			<h3 class="media-heading h3sidebar">{{ $row->name }}</h3>
-		</div>
-		</a>
-		</div>
-	@endforeach
 
 @endsection

@@ -27,10 +27,6 @@ class ThemeController extends Controller {
 	public function getView($param = null){
 		$data['rs'] = Theme::where('slug', $param)->firstOrFail();
 
-		// ธีมอื่นๆของ user นี้
-		$data['other'] = new Theme;
-		$data['other'] = $data['other']->whereNotIn('id',[$data['rs']->id])->inRandomOrder()->take(10)->get();
-
 		// SEO
 		SEO::setTitle($data['rs']->name.' - ธีมไลน์');
 		SEO::setDescription('ธีมไลน์'.$data['rs']->description);

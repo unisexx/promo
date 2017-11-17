@@ -28,10 +28,6 @@ class StickerController extends Controller {
 	
 	public function getView($param = null){
 		$data['rs'] = Sticker::where('slug', $param)->firstOrFail();
-
-		// สติ๊กเกอร์อื่นๆของ user นี้
-		$data['other'] = new Sticker;
-		$data['other'] = $data['other']->whereNotIn('id',[$data['rs']->id])->inRandomOrder()->take(10)->get();
 		
 		// tracking
 		// $array = @array_merge(Session::get('track_sticker'), array($data['rs']->id));

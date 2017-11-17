@@ -15,6 +15,7 @@
 	<h1>{{ $rs->name }}</h2>
 	<p>{{ $rs->description }}</p>
 	<p class="price">{{ $rs->price }}</p>
+	@widget('socialShareBtn')
 </div>
 
 <br clear="all">
