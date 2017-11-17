@@ -15,6 +15,9 @@ class Kernel extends HttpKernel
      */
     protected $middleware = [
         \Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode::class,
+        
+        // appending custom middleware ทำ https
+        'App\Http\Middleware\HttpsProtocol',
     ];
 
     /**

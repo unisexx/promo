@@ -16,7 +16,12 @@
 					<div class="panel panel-default">
 						<div class="panel-body">
 						<a href="{{ url('sticker/'.$row->slug) }}">
-							<div><img class="img-responsive" src="https://sdl-stickershop.line.naver.jp/products/0/0/{{ $row->version }}/{{ $row->sticker_code }}/android/main.png"></div>
+							<div class="img-cover">
+								<img class="img-responsive" src="https://sdl-stickershop.line.naver.jp/products/0/0/{{ $row->version }}/{{ $row->sticker_code }}/android/main.png">
+								@if($row->stickerresourcetype == 'ANIMATION')
+									<span class="MdIcoPlay_m">Animation only icon</span>
+								@endif
+							</div>
 							<h2>{{ $row->name }}</h2>
 						</a>
 						</div>
