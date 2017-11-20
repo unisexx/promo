@@ -1,19 +1,25 @@
 @extends('layouts.front_view')
 
 @section('content')
-<div class="col-xs-5 col-sm-5 col-md-4">
-	<img class="img-responsive" src="https://shop.line-scdn.net/themeshop/v1/products/{{ $rs->theme_path }}/WEBSTORE/icon_198x278.png" style="margin-right: 15px;">
+<div class="clearfix">
+	<div class="col-xs-5 col-sm-5 col-md-4">
+		<img class="img-responsive" src="https://shop.line-scdn.net/themeshop/v1/products/{{ $rs->theme_path }}/WEBSTORE/icon_198x278.png" style="margin-right: 15px;">
+	</div>
+
+	<div class="col-xs-6 col-sm-6 col-md-8">
+		<small>{{ $rs->head_credit }}</small>
+		<h1>{{ $rs->name }}</h2>
+		<p>{{ $rs->description }}</p>
+		<p class="price">{{ $rs->price }}</p>
+		@widget('socialShareBtn')
+	</div>
 </div>
 
-<div class="col-xs-6 col-sm-6 col-md-8">
-	<small>{{ $rs->head_credit }}</small>
-	<h1>{{ $rs->name }}</h2>
-	<p>{{ $rs->description }}</p>
-	<p class="price">{{ $rs->price }}</p>
-	@widget('socialShareBtn')
+<div class="clearfix btnShop">
+	<div class="col-xs-12 col-sm-12 col-md-12">
+		<a href="http://line.me/ti/p/@line2me.in.th" class="btn btn-success btn-block"><i class="fa fa-gift" aria-hidden="true"></i> สั่งซื้อธีมไลน์ชุดนี้</a>
+	</div>
 </div>
-
-<br clear="all">
 <hr>
 
 @for ($i = 1; $i <= 5; $i++)

@@ -66,6 +66,7 @@
         font-size: 11pt;
         line-height: 140%;
         font-family: 'Helvetica Neue', Helvetica, arial, sans-serif;
+        padding-top:70px;
     }
     .fa-btn {
         margin-right: 6px;
@@ -97,6 +98,8 @@
         /* border-right: 1px solid #888888; */
         padding: 4px 10px 2px 10px;
     }
+
+    .btnShop{margin-top:10px;}
     
     {{-- flex-box --}}
     .panel-body h2 {
@@ -125,6 +128,8 @@
 	}
     .panel-body{padding:0px !important;}
     .img-cover{position: relative;}
+
+
 
     /* icon */
     .img-cover .MdIcoSound_b, .img-cover .MdIcoPlay_b, .img-cover .MdIcoAni_b, .img-cover .MdIcoFlash_b, .img-cover .MdIcoFlashAni_b,.img-cover .MdIcoPlay_m {
