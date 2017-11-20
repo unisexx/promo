@@ -6,7 +6,7 @@
 	<div class="col-md-12">
 		<div class="box box-default">
 			<div class="box-header with-border">
-			<h1 class="box-title">ธีมไลน์</h1>
+			<h2 class="box-title">ธีมไลน์</h2>
 			<!-- /.box-tools -->
 			</div>
 			<!-- /.box-header -->
@@ -17,7 +17,7 @@
 						<div class="panel-body">
 						<a href="{{ url('theme/'.$row->slug) }}">
 							<div><img class="img-responsive" src="https://shop.line-scdn.net/themeshop/v1/products/{{ $row->theme_path }}/WEBSTORE/icon_136x190.png"></div>
-							<h2>{{ $row->name }}</h2>
+							<h3>{{ $row->name }}</h3>
 						</a>
 						</div>
 					</div>

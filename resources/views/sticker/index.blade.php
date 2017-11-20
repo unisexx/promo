@@ -6,7 +6,7 @@
 	<div class="col-md-12">
 		<div class="box box-default">
 			<div class="box-header with-border">
-			<h1 class="box-title">สติ๊กเกอร์ไลน์</h1>
+			<h2 class="box-title">สติ๊กเกอร์ไลน์</h2>
 			<!-- /.box-tools -->
 			</div>
 			<!-- /.box-header -->
@@ -22,7 +22,7 @@
 									<span class="MdIcoPlay_m">Animation only icon</span>
 								@endif
 							</div>
-							<h2>{{ $row->name }}</h2>
+							<h3>{{ $row->name }}</h3>
 						</a>
 						</div>
 					</div>

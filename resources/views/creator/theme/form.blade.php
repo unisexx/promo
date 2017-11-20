@@ -31,7 +31,7 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            {{Form::open(array('url'=>'creator/theme/save', 'method'=>'post', 'class'=>'form-horizontal','id'=>'themeFrm'))}}
+            {{Form::open(array('url'=>'creator/theme/save', 'method'=>'post', 'class'=>'','id'=>'themeFrm'))}}
               <div class="box-body">
 
                 @if(count($errors))
@@ -46,16 +46,11 @@
                   </div>
                 @endif
 
-                <div class="form-group">
-                  <label for="inputTheme_code" class="col-sm-2 control-label">ค้นหาข้อมูล</label>
-                  <div class="col-sm-10">
-                  <div class="input-group {{ $errors->has('theme_code') ? 'has-error' : '' }}">
-                    <span class="input-group-addon" style="background-color:#f1f1f1;">https://store.line.me/stickershop/product/</span>
-                    <input id="inputTheme_code" type="text" class="form-control" name="theme_code" placeholder="ไอดีของธีม" value="{{ old('theme_code') }}">
-                    <span class="input-group-addon" style="background-color:#f1f1f1;">/th</span>
-                  </div>
-                  </div>
+                <div class="form-group {{ $errors->has('theme_code') ? 'has-error' : '' }}">
+                  <label for="inputTheme_code">ตัวอย่าง : https://store.line.me/themeshop/product/<code><b>8f1fb899-70be-4885-8dcc-ef53f008c760</b></code>/th</label>
+                  <input id="inputTheme_code" type="text" class="form-control" name="theme_code" placeholder="ใส่เฉพาะรหัสสีแดง" value="{{ old('theme_code') }}">
                 </div>
+
               </div>
               <!-- /.box-body -->
               <div class="box-footer">

@@ -37,7 +37,8 @@
 				<div class="col-md-12">
 					<div class="box box-default">
 						<div class="box-header with-border">
-						<h1 class="box-title">สติ๊กเกอร์ไลน์</h1>
+						<span class="more pull-right"><a href="{{ url('sticker') }}">ดูเพิ่มเติม ></a></span>
+						<h2 class="box-title">สติ๊กเกอร์ไลน์</h2>
 						<!-- /.box-tools -->
 						</div>
 						<!-- /.box-header -->
@@ -53,7 +54,7 @@
 												<span class="MdIcoPlay_m">Animation only icon</span>
 											@endif
 										</div>
-										<h2>{{ $row->name }}</h2>
+										<h3>{{ $row->name }}</h3>
 									</a>
 									</div>
 								</div>
@@ -70,7 +71,8 @@
 				<div class="col-md-12">
 					<div class="box box-default">
 						<div class="box-header with-border">
-						<h1 class="box-title">ธีมไลน์</h1>
+						<span class="more pull-right"><a href="{{ url('theme') }}">ดูเพิ่มเติม ></a></span>
+						<h2 class="box-title">ธีมไลน์</h2>
 						<!-- /.box-tools -->
 						</div>
 						<!-- /.box-header -->
@@ -81,7 +83,7 @@
 									<div class="panel-body">
 									<a href="{{ url('theme/'.$row->slug) }}">
 										<div><img class="img-responsive" src="https://shop.line-scdn.net/themeshop/v1/products/{{ $row->theme_path }}/WEBSTORE/icon_136x190.png"></div>
-										<h2>{{ $row->name }}</h2>
+										<h3>{{ $row->name }}</h3>
 									</a>
 									</div>
 								</div>

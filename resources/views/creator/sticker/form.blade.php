@@ -31,7 +31,7 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            {{Form::open(array('url'=>'creator/sticker/save', 'method'=>'post', 'class'=>'form-horizontal','id'=>'stickerFrm'))}}
+            {{Form::open(array('url'=>'creator/sticker/save', 'method'=>'post', 'class'=>'','id'=>'stickerFrm'))}}
               <div class="box-body">
 
                 @if(count($errors))
@@ -46,16 +46,11 @@
                   </div>
                 @endif
 
-                <div class="form-group">
-                  <label for="inputSticker_code" class="col-sm-2 control-label">ค้นหาข้อมูล</label>
-                  <div class="col-sm-10">
-                  <div class="input-group {{ $errors->has('sticker_code') ? 'has-error' : '' }}">
-                    <span class="input-group-addon" style="background-color:#f1f1f1;">https://store.line.me/stickershop/product/</span>
-                    <input id="inputSticker_code" type="text" class="form-control" name="sticker_code" placeholder="หมายเลขไอดีของสติ๊กเกอร์" value="{{ old('sticker_code') }}">
-                    <span class="input-group-addon" style="background-color:#f1f1f1;">/th</span>
-                  </div>
-                  </div>
+                <div class="form-group {{ $errors->has('sticker_code') ? 'has-error' : '' }}">
+                  <label for="inputSticker_code">ตัวอย่าง : https://store.line.me/stickershop/product/<code><b>8994</b></code>/th</label>
+                  <input id="inputSticker_code" type="text" class="form-control" name="sticker_code" placeholder="ใส่เฉพาะตัวเลขสีแดง" value="{{ old('sticker_code') }}">
                 </div>
+                
               </div>
               <!-- /.box-body -->
               <div class="box-footer">

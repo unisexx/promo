@@ -1,4 +1,4 @@
-<h2 class="h2sidebar text-center bg-gray">สติ๊กเกอร์ที่น่าสนใจ</h2>
+<h2 class="h2sidebar">สติ๊กเกอร์ที่น่าสนใจ</h2>
 @foreach($other as $row)
     <div class="col-xs-6 col-sm-12 col-md-12 mediablk">
         <div class="panel panel-default">
@@ -8,7 +8,7 @@
                 <img src="https://sdl-stickershop.line.naver.jp/products/0/0/{{ $row->version }}/{{ $row->sticker_code }}/android/thumbnail.png" width="40" height="40">
             </div>
             <div class="media-body">
-                <h2 class="media-heading h3sidebar">{{ $row->name }}</h2>
+                <h3 class="media-heading h3sidebar">{{ $row->name }}</h3>
             </div>
             </a>
             </div>

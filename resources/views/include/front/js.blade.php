@@ -7,7 +7,23 @@
         $('.carousel').carousel({
             interval: 1000 * 10
         });
+
+        $(window).scroll(function() {
+        if($(this).scrollTop() != 0) {
+                $('#footer-back-to-top').fadeIn();
+            } else {
+                $('#footer-back-to-top').fadeOut();
+            }
+        });
+        
+        $('#footer-back-to-top').click(function() {
+            $('body,html').animate({scrollTop:0},800);
+        }); 
     });
+
+    function goBack() {
+        window.history.back();
+    }
 </script>
 
 <script>
