@@ -9,7 +9,7 @@
 | It's a breeze. Simply tell Laravel the URIs it should respond to
 | and give it the controller to call when that URI is requested.
 |
-*/
+ */
 
 // Route::get('/', function () {
     // return view('welcome');
@@ -34,7 +34,7 @@ Route::get('/theme/{param}', 'ThemeController@getView');
 Route::group(['middleware' => 'auth'], function () {
 
     // Creator
-    Route::group(['prefix' => 'creator', 'namespace' => 'Creator'], function(){
+    Route::group(['prefix' => 'creator', 'namespace' => 'Creator'], function () {
         Route::controller('dashboard', 'DashboardController');
         Route::controller('sticker', 'StickerController');
         Route::controller('theme', 'ThemeController');
@@ -43,10 +43,15 @@ Route::group(['middleware' => 'auth'], function () {
 
 }); //middleware
 
-Route::get('/test', function() {
+Route::get('/test', function () {
     $crawler = Goutte::request('GET', 'https://duckduckgo.com/html/?q=Laravel');
     $crawler->filter('.result__title .result__a')->each(function ($node) {
         dump($node->text());
     });
     return view('welcome');
+});
+
+Route::get('/testimg', function () {
+    // return Image::canvas(800, 600, '#ccc')->save('bar.jpg');
+    return Image::canvas(800, 600, '#ccc')->response('jpg');
 });
