@@ -155,6 +155,7 @@ return [
         Artesaos\SEOTools\Providers\SEOToolsServiceProvider::class,
         Arrilot\Widgets\ServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
+        Zizaco\Entrust\EntrustServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -218,6 +219,7 @@ return [
         'Widget' => Arrilot\Widgets\Facade::class,
         'AsyncWidget' => Arrilot\Widgets\AsyncFacade::class,
         'Image' => Intervention\Image\Facades\Image::class,
+        'Entrust' => Zizaco\Entrust\EntrustFacade::class,
 
         'SEOMeta' => Artesaos\SEOTools\Facades\SEOMeta::class,
         'OpenGraph' => Artesaos\SEOTools\Facades\OpenGraph::class,

@@ -55,3 +55,6 @@ Route::get('/testimg', function () {
     // return Image::canvas(800, 600, '#ccc')->save('bar.jpg');
     return Image::canvas(800, 600, '#ccc')->response('jpg');
 });
+
+// test entrust
+Route::controller('role', 'RoleController');
