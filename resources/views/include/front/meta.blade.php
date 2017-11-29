@@ -68,6 +68,9 @@
         font-family: 'Helvetica Neue', Helvetica, arial, sans-serif;
         padding-top:70px;
     }
+    .navbar-inverse .navbar-brand {
+        color: #00CA57 !important;
+    }
     .fa-btn {
         margin-right: 6px;
     }
