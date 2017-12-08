@@ -52,7 +52,9 @@
     }
 
     /* Small devices (tablets, 768px and up) */
-    @media screen and (max-width: 768px){}
+    @media screen and (max-width: 768px){
+        .carousel-wrap{margin-top:-19px;}
+    }
 
     /* Medium devices (desktops, 992px and up) */
     @media screen and (min-width: 992px){
@@ -68,6 +70,7 @@
         font-family: 'Helvetica Neue', Helvetica, arial, sans-serif;
         padding-top:70px;
     }
+    .footer{ padding-bottom:90px; }
     .navbar-inverse .navbar-brand {
         color: #00CA57 !important;
     }
@@ -104,7 +107,7 @@
 
     .btnShop{margin-top:10px;}
     
-    {{-- flex-box --}}
+    /* flex-box */
     .panel-body h3 {
 		text-align: center;
 		line-height: 1.5;
@@ -118,6 +121,29 @@
 		-webkit-box-orient: vertical;
 		margin-top:10px;
 	}
+
+    .icon-bar {
+        width: 100%;
+        overflow: auto;
+    }
+
+    .icon-bar a {
+        float: left;
+        width: 25%;
+        text-align: center;
+        padding: 12px 0;
+        transition: all 0.3s ease;
+        color: #FFF;
+        /* border-right: 1px solid #9d9d9d; */
+    }
+    .icon-bar-wrap{ 
+        background:#464E65; 
+        position: fixed;
+        bottom: 0px;
+        right: 0;
+        left: 0;
+        opacity: 0.9;
+    }
 
 	/* not requied only for demo * */
 	.row [class*='col-'] {
@@ -133,10 +159,6 @@
     .img-cover{position: relative;}
     .box{border:none !important; box-shadow:none !important;}
     .box-title{color:#000; font-weight: bold;}
-
-    .more{
-        
-    }
 
 
     /* icon */
@@ -177,7 +199,7 @@
         width: 32px;
         height: 32px;
         font-size: 40px;
-        color: #604c3f;
+        color: #9197AF;
         opacity: 0.8;
     }
     #footer-back-to-top.offscreen {
@@ -190,10 +212,7 @@
         -webkit-transform: scaleX(-1);
         -o-transform: scaleX(-1);
         -ms-transform: scaleX(-1);
-        //border-radius: 50px;
-        //color: white;
-        //background-color: #604c3f;
-        color: #604c3f;
+        color: #9197AF;
         position: fixed;
         right: 5px;
         bottom: 85px;

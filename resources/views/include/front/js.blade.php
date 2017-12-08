@@ -19,11 +19,26 @@
         $('#footer-back-to-top').click(function() {
             $('body,html').animate({scrollTop:0},800);
         }); 
+
+        var alterClass = function() {
+            var ww = document.body.clientWidth;
+            if (ww < 750) {
+            $('.carousel-wrap').removeClass('col-md-12');
+            } else if (ww >= 751) {
+            $('.carousel-wrap').addClass('col-md-12');
+            };
+        };
+        $(window).resize(function(){
+            alterClass();
+        });
+        //Fire it when the page first loads:
+        alterClass();
     });
 
     function goBack() {
         window.history.back();
     }
+    
 </script>
 
 <script>

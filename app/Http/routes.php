@@ -30,6 +30,9 @@ Route::get('/sticker/{param}', 'StickerController@getView');
 Route::get('/theme', 'ThemeController@getIndex');
 Route::get('/theme/{param}', 'ThemeController@getView');
 
+Route::get('/page', 'PageController@getIndex');
+Route::get('/page/{param}', 'PageController@getView');
+
 // เช็กล็อกอิน
 Route::group(['middleware' => 'auth'], function () {
 

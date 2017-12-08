@@ -16,9 +16,7 @@
 </div>
 
 <div class="clearfix btnShop">
-	<div class="col-xs-12 col-sm-12 col-md-12">
-		<a href="http://line.me/ti/p/@line2me.in.th" class="btn btn-success btn-block"><i class="fa fa-gift" aria-hidden="true"></i> สั่งซื้อธีมไลน์ชุดนี้</a>
-	</div>
+	<a href="http://line.me/ti/p/~ratasak1234" class="btn btn-success btn-block"><i class="fa fa-gift" aria-hidden="true"></i> สั่งซื้อธีมไลน์ชุดนี้</a>
 </div>
 <hr>
 

@@ -219,7 +219,7 @@ return [
         'Widget' => Arrilot\Widgets\Facade::class,
         'AsyncWidget' => Arrilot\Widgets\AsyncFacade::class,
         'Image' => Intervention\Image\Facades\Image::class,
-        'Entrust' => Zizaco\Entrust\EntrustFacade::class,
+        // 'Entrust' => Zizaco\Entrust\EntrustFacade::class,
 
         'SEOMeta' => Artesaos\SEOTools\Facades\SEOMeta::class,
         'OpenGraph' => Artesaos\SEOTools\Facades\OpenGraph::class,
