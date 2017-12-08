@@ -134,10 +134,6 @@
     .box{border:none !important; box-shadow:none !important;}
     .box-title{color:#000; font-weight: bold;}
 
-    .more{
-        
-    }
-
 
     /* icon */
     .img-cover .MdIcoSound_b, .img-cover .MdIcoPlay_b, .img-cover .MdIcoAni_b, .img-cover .MdIcoFlash_b, .img-cover .MdIcoFlashAni_b,.img-cover .MdIcoPlay_m {
