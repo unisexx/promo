@@ -30,7 +30,7 @@
             </div>
             <!-- /.box-header -->
             <!-- form start -->
-            {{Form::open(array('url'=>'creator/sticker/save', 'method'=>'post', 'class'=>'','id'=>'stickerFrm'))}}
+            {{Form::open(array('url'=>'creator/sticker/tagsave', 'method'=>'post', 'class'=>'','id'=>'stickerFrm'))}}
               <div class="box-body">
 
                 @if(count($errors))
@@ -52,7 +52,10 @@
                         <div class="img-cover">
                         <img src="{{ $row }}" height="120" width="120">
                         </div>
-                        <textarea name="tag[]" style="width:100%;">{{ $key }}</textarea>
+                        <input type="hidden" name="stamp_code[]" value="{{ $stamp_code[$key] }}">
+                        <input type="hidden" name="version[]" value="{{ $version[$key] }}">
+                        <input type="hidden" name="url[]" value="{{ $row }}">
+                        <textarea name="name[]" style="width:100%;"></textarea>
                       </div>
                     </div>
                   </div>
@@ -61,6 +64,8 @@
               </div>
               <!-- /.box-body -->
               <div class="box-footer">
+                <input type="hidden" name="sticker_id" value="{{ $rs->id }}"> 
+                <input type="hidden" name="sticker_code" value="{{ $rs->sticker_code }}"> 
                 <!-- <button type="submit" class="btn btn-default">Cancel</button> -->
                 <button type="submit" class="btn btn-info pull-right">บันทึกข้อมูล</button>
               </div>

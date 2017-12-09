@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "644106551d633e58a5d326a2cd06067e",
-    "content-hash": "110401efa7b2149d9c32c212b3fc963f",
+    "hash": "3cc2418e2a7d477fd7d21946d2e1dfe4",
+    "content-hash": "b3483d85fdd12b9ab4810cbfc5082653",
     "packages": [
         {
             "name": "arrilot/laravel-widgets",
@@ -1492,11 +1492,7 @@
         },
         {
             "name": "symfony/browser-kit",
-<<<<<<< HEAD
-            "version": "v3.4.0",
-=======
             "version": "v3.4.1",
->>>>>>> ddba3b446207512174da04a9eec7fed65f79bc9a
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/browser-kit.git",
@@ -1779,11 +1775,7 @@
         },
         {
             "name": "symfony/event-dispatcher",
-<<<<<<< HEAD
-            "version": "v3.4.0",
-=======
             "version": "v3.4.1",
->>>>>>> ddba3b446207512174da04a9eec7fed65f79bc9a
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/event-dispatcher.git",
@@ -2622,11 +2614,7 @@
                 "permission",
                 "roles"
             ],
-<<<<<<< HEAD
-            "time": "2016-12-29 06:25:06"
-=======
             "time": "2017-11-13 23:46:19"
->>>>>>> ddba3b446207512174da04a9eec7fed65f79bc9a
         }
     ],
     "packages-dev": [
@@ -3299,11 +3287,7 @@
             "keywords": [
                 "tokenizer"
             ],
-<<<<<<< HEAD
-            "time": "2017-02-27 10:12:30"
-=======
             "time": "2017-12-04 08:55:13"
->>>>>>> ddba3b446207512174da04a9eec7fed65f79bc9a
         },
         {
             "name": "phpunit/phpunit",
@@ -3858,11 +3842,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-<<<<<<< HEAD
-            "time": "2017-11-10 18:26:04"
-=======
             "time": "2017-12-04 14:51:35"
->>>>>>> ddba3b446207512174da04a9eec7fed65f79bc9a
         },
         {
             "name": "webmozart/assert",

@@ -229,7 +229,7 @@ class StickerController extends Controller
 		}
 	}
 
-	function getTagform()
+	function getTagform($id = null)
 	{
 		//permission
 		if (Auth::user()->level != 99) {
@@ -237,23 +237,47 @@ class StickerController extends Controller
 			return back()->send();
 		}
 
-		$sticker_code = 534;
-		$crawler = Goutte::request('GET', 'https://store.line.me/stickershop/product/' . $sticker_code . '/th');
+		$data['rs'] = Sticker::find($id);
+
+		// $sticker_code = 534;
+		$crawler = Goutte::request('GET', 'https://store.line.me/stickershop/product/' . $data['rs']->sticker_code . '/th');
 		// $image = $crawler->filter('.mdCMN09Image')->attr('style');
 		// dump($image);
 
 		$data['image'] = array();
+		$data['version'] = array();
+		$data['stamp_code'] = array();
 		for ($i = 0; $i < 40; $i++) {
 			// check node empty
 			if ($crawler->filter('.mdCMN09Image')->eq($i)->count() != 0) {
 				$imgTxt = $crawler->filter('.mdCMN09Image')->eq($i)->attr('style');
 				$data['image'][] = getUrlFromText($imgTxt);
-				// dump($data['image']);
+
+				$image_path = explode("/", getUrlFromText($imgTxt));
+				$data['version'][] = str_replace('v', '', $image_path[4]);
+				$data['stamp_code'][] = $image_path[6];
+				// dump($stamp_code);
 			}
 		}
 
 		// dump($data['image']);
 
 		return view('creator.sticker.tagform', $data);
+	}
+
+	public function postTagsave(Request $rq, $id = null)
+	{
+		foreach ($rq->stamp_code as $key => $item) {
+			$data[] = array(
+				'sticker_id' => $rq->input('sticker_id'),
+				'sticker_code' => $rq->input('sticker_code'),
+				'stamp_code' => $item,
+				'version' => $rq->input('version')[$key],
+				'url' => $rq->input('url')[$key],
+				'name' => $rq->input('name')[$key],
+			);
+		}
+		DB::table('tags')->insert($data);
+		return Redirect('creator/sticker/tagform/' . $rq->input('sticker_id'));
 	}
 }
