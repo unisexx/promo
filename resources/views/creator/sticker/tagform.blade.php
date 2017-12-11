@@ -45,27 +45,28 @@
                   </div>
                 @endif
                 
-                @foreach($image as $key=>$row)
+                @foreach($rs->stamp()->get() as $key=>$row)
                   <div class="col-xs-12 col-sm-3 col-md-3">
                     <div class="panel panel-default">
-                      <div class="panel-body">
+                      <div class="panel-body {{ $errors->has('tag.'.$key) ? 'has-error' : '' }}">
                         <div class="img-cover">
-                        <img src="{{ $row }}" height="120" width="120">
+                        <img src="https://stickershop.line-scdn.net/stickershop/v{{ $row->version }}/sticker/{{ $row->stamp_code }}/android/sticker.png;compress=true" height="120" width="120">
                         </div>
-                        <input type="hidden" name="stamp_code[]" value="{{ $stamp_code[$key] }}">
-                        <input type="hidden" name="version[]" value="{{ $version[$key] }}">
-                        <input type="hidden" name="url[]" value="{{ $row }}">
-                        <textarea name="name[]" style="width:100%;"></textarea>
+                        <input type="hidden" name="id[]" value="{{ $row->id }}">
+                        <input type="hidden" name="stamp_code[]" value="{{ $row->stamp_code }}">
+                        <textarea id="tag.{{ $key }}" name="tag[]" style="width:100%;">{{ @$row->tag }}</textarea>
                       </div>
                     </div>
                   </div>
                 @endforeach
+
+                {{ dump($errors) }}
                 
               </div>
               <!-- /.box-body -->
               <div class="box-footer">
                 <input type="hidden" name="sticker_id" value="{{ $rs->id }}"> 
-                <input type="hidden" name="sticker_code" value="{{ $rs->sticker_code }}"> 
+                <!-- <input type="hidden" name="sticker_code" value="{{ $rs->sticker_code }}">  -->
                 <!-- <button type="submit" class="btn btn-default">Cancel</button> -->
                 <button type="submit" class="btn btn-info pull-right">บันทึกข้อมูล</button>
               </div>

@@ -7,6 +7,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Models\Sticker;
+use App\Models\Stamp;
 
 use Form;
 use DB;
@@ -25,33 +26,6 @@ class StickerController extends Controller
 
 	public function getForm()
 	{
-		// $sticker_code = 1563388;
-		// $crawler = Goutte::request('GET', 'https://store.line.me/stickershop/product/'.$sticker_code.'/th');
-		// $image_cover = $crawler->filter('div.mdCMN08Img > img')->attr('src');
-		// $head_credit = $crawler->filter('p.mdCMN08Copy > a')->text();
-		// $sticker_name = $crawler->filter('h3.mdCMN08Ttl')->text();
-		// $sticker_description = $crawler->filter('p.mdCMN08Desc')->text();
-		// $sticker_price = $crawler->filter('p.mdCMN08Price')->text();
-		// $foot_credit = $crawler->filter('p.mdCMN09Copy')->text();
-// 
-		// dump($image_cover);
-		// dump($head_credit);
-		// dump($sticker_name);
-		// dump($sticker_description);
-		// dump($sticker_price);
-		// dump($foot_credit);
-// 
-		// $image_cover_path = explode("/", $image_cover);
-		// $version = str_replace('v','',$image_cover_path[4]);
-// 
-		// $curlSession = curl_init();
-        // curl_setopt($curlSession, CURLOPT_URL, 'http://dl.stickershop.line.naver.jp/products/0/0/'.$version.'/'.$sticker_code.'/LINEStorePC/productInfo.meta');
-        // curl_setopt($curlSession, CURLOPT_BINARYTRANSFER, true);
-        // curl_setopt($curlSession, CURLOPT_RETURNTRANSFER, true);
-        // $jsonData = json_decode(curl_exec($curlSession));
-        // curl_close($curlSession);
-		// dump($jsonData);
-
 		return view('creator.sticker.form');
 	}
 
@@ -122,6 +96,26 @@ class StickerController extends Controller
 		));
 		$model->save();
 
+		// Sticker Detail Stamp Save
+		for ($i = 0; $i < 40; $i++) {
+			// check node empty
+			if ($crawler->filter('.mdCMN09Image')->eq($i)->count() != 0) {
+				$imgTxt = $crawler->filter('.mdCMN09Image')->eq($i)->attr('style');
+				$image_path = explode("/", getUrlFromText($imgTxt));
+				$stamp_code = $image_path[6];
+				// dump($stamp_code);
+
+				$data[] = array(
+					'sticker_id' => $model->id,
+					'sticker_code' => $sticker_code,
+					'stamp_code' => $stamp_code,
+					'version' => $version,
+				);
+			}
+		}
+		DB::table('stamps')->insert($data);
+
+
 		set_notify('success', trans('message.completeSave'));
 		return Redirect('creator/sticker/index');
 	}
@@ -130,6 +124,7 @@ class StickerController extends Controller
 	{
 		$rs = Sticker::find($id);
 		if ($rs->user_id = Auth::user()->id) {
+			$rs->stamp()->delete();
 			$rs->delete(); // Delete process
 			set_notify('error', trans('message.completeDelete'));
 		} else {
@@ -239,45 +234,45 @@ class StickerController extends Controller
 
 		$data['rs'] = Sticker::find($id);
 
-		// $sticker_code = 534;
-		$crawler = Goutte::request('GET', 'https://store.line.me/stickershop/product/' . $data['rs']->sticker_code . '/th');
-		// $image = $crawler->filter('.mdCMN09Image')->attr('style');
-		// dump($image);
+		// ถ้า sticker นี้ยังไม่มีข้อมูล stamp ให้ทำการอัพเดทแล้ว save stamp ใหม่
+		if (count($data['rs']->stamp) == 0) {
+			$crawler = Goutte::request('GET', 'https://store.line.me/stickershop/product/' . $data['rs']->sticker_code . '/th');
+			// Sticker Detail Stamp Save
+			for ($i = 0; $i < 40; $i++) {
+				// check node empty
+				if ($crawler->filter('.mdCMN09Image')->eq($i)->count() != 0) {
+					$imgTxt = $crawler->filter('.mdCMN09Image')->eq($i)->attr('style');
+					$image_path = explode("/", getUrlFromText($imgTxt));
+					$stamp_code = $image_path[6];
+					// dump($stamp_code);
 
-		$data['image'] = array();
-		$data['version'] = array();
-		$data['stamp_code'] = array();
-		for ($i = 0; $i < 40; $i++) {
-			// check node empty
-			if ($crawler->filter('.mdCMN09Image')->eq($i)->count() != 0) {
-				$imgTxt = $crawler->filter('.mdCMN09Image')->eq($i)->attr('style');
-				$data['image'][] = getUrlFromText($imgTxt);
-
-				$image_path = explode("/", getUrlFromText($imgTxt));
-				$data['version'][] = str_replace('v', '', $image_path[4]);
-				$data['stamp_code'][] = $image_path[6];
-				// dump($stamp_code);
+					$stamp[] = array(
+						'sticker_id' => $data['rs']->id,
+						'sticker_code' => $data['rs']->sticker_code,
+						'stamp_code' => $stamp_code,
+						'version' => $data['rs']->version,
+					);
+				}
 			}
+			DB::table('stamps')->insert($stamp);
 		}
-
-		// dump($data['image']);
 
 		return view('creator.sticker.tagform', $data);
 	}
 
 	public function postTagsave(Request $rq, $id = null)
 	{
-		foreach ($rq->stamp_code as $key => $item) {
-			$data[] = array(
-				'sticker_id' => $rq->input('sticker_id'),
-				'sticker_code' => $rq->input('sticker_code'),
-				'stamp_code' => $item,
-				'version' => $rq->input('version')[$key],
-				'url' => $rq->input('url')[$key],
-				'name' => $rq->input('name')[$key],
-			);
+		$this->validate($rq, [
+			'tag.*' => 'max:50'
+		], [
+			'tag.*.max' => ' ห้ามเกิน 50 ตัวอักษร'
+		]);
+
+		foreach ($rq->id as $key => $item) {
+			$model = Stamp::find($item);
+			$model->tag = @$rq->input('tag')[$key];
+			$model->save();
 		}
-		DB::table('tags')->insert($data);
 		return Redirect('creator/sticker/tagform/' . $rq->input('sticker_id'));
 	}
 }
