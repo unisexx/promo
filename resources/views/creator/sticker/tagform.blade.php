@@ -32,7 +32,12 @@
             <!-- form start -->
             {{Form::open(array('url'=>'creator/sticker/tagsave', 'method'=>'post', 'class'=>'','id'=>'stickerFrm'))}}
               <div class="box-body">
-
+                <dl>
+                  <dt>การใส่ Tags หรือคำค้นหาให้ได้ประสิทธิภาพมากที่สุด</dt>
+                  <dd>- ใส่ตามคำพูดที่อยู่ในสติ๊กเกอร์</dd>
+                  <dd>- ถ้าหากสติ๊กเกอร์ไม่มีคำพูด ให้ใส่ตามอารมณ์, ความรู้สึกของตัวสติ๊กเกอร์ ตัวอย่าง ดีใจ, เสียใจ, โกรธ, งอน เป็นต้น</dd>
+                  <dd>- ไม่ควรใส่คำที่ไม่เกี่ยวข้องหรือไม่สื่อความหมาย เพราะจะทำให้การค้นหาสติกเกอร์ของเราดูไม่น่าเชื่อถือ</dd>
+                </dl>
                 @if(count($errors))
                   <div class="alert alert-danger">
                     <strong>อุ๊บส์!</strong> ไม่สามารถบันทึกข้อมูลได้เนื่องจาก...
@@ -54,20 +59,17 @@
                         </div>
                         <input type="hidden" name="id[]" value="{{ $row->id }}">
                         <input type="hidden" name="stamp_code[]" value="{{ $row->stamp_code }}">
-                        <textarea id="tag.{{ $key }}" name="tag[]" style="width:100%;">{{ @$row->tag }}</textarea>
+                        <textarea id="tag.{{ $key }}" name="tag[]" style="width:100%;">{{ @$row->tag ? @$row->tag : old('tag.'.$key) }}</textarea>
                       </div>
                     </div>
                   </div>
                 @endforeach
-
-                {{ dump($errors) }}
                 
               </div>
               <!-- /.box-body -->
               <div class="box-footer">
                 <input type="hidden" name="sticker_id" value="{{ $rs->id }}"> 
-                <!-- <input type="hidden" name="sticker_code" value="{{ $rs->sticker_code }}">  -->
-                <!-- <button type="submit" class="btn btn-default">Cancel</button> -->
+                <a href="creator/sticker" class="btn btn-default">< กลับหน้าสติ๊กเกอร์</a>
                 <button type="submit" class="btn btn-info pull-right">บันทึกข้อมูล</button>
               </div>
               <!-- /.box-footer -->

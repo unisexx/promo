@@ -123,7 +123,7 @@ class StickerController extends Controller
 	public function getDelete($id = null)
 	{
 		$rs = Sticker::find($id);
-		if ($rs->user_id = Auth::user()->id) {
+		if ($rs->user_id == Auth::user()->id) {
 			$rs->stamp()->delete();
 			$rs->delete(); // Delete process
 			set_notify('error', trans('message.completeDelete'));
@@ -226,13 +226,11 @@ class StickerController extends Controller
 
 	function getTagform($id = null)
 	{
-		//permission
-		if (Auth::user()->level != 99) {
-			set_notify('error', trans('คุณไม่มีสิทธิ์เข้าใช้งาน'));
-			return back()->send();
-		}
-
 		$data['rs'] = Sticker::find($id);
+		if ($data['rs']->user_id != Auth::user()->id) {
+			set_notify('error', 'ไม่สามารถดำเนินรายการได้');
+			return Redirect('creator/sticker/index');
+		}
 
 		// ถ้า sticker นี้ยังไม่มีข้อมูล stamp ให้ทำการอัพเดทแล้ว save stamp ใหม่
 		if (count($data['rs']->stamp) == 0) {
@@ -273,6 +271,7 @@ class StickerController extends Controller
 			$model->tag = @$rq->input('tag')[$key];
 			$model->save();
 		}
+		set_notify('success', trans('message.completeSave'));
 		return Redirect('creator/sticker/tagform/' . $rq->input('sticker_id'));
 	}
 }

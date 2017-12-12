@@ -41,6 +41,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Google Font -->
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+  <style>
+    .panel .has-error{background:#dd4b39;}
+  </style>
 </head>
 
 <!--
