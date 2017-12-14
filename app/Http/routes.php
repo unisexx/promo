@@ -23,6 +23,7 @@ Route::auth();
 Route::get('/', 'HomeController@index');
 Route::get('home', 'HomeController@index');
 Route::get('search', 'HomeController@search');
+Route::get('tag/{param}', 'HomeController@tag');
 
 Route::get('/sticker', 'StickerController@getIndex');
 Route::get('/sticker/{param}', 'StickerController@getView');

@@ -25,5 +25,51 @@
 </div>
 
 <hr>
-<img class="img-responsive" src="https://sdl-stickershop.line.naver.jp/products/0/0/{{ $rs->version }}/{{ $rs->sticker_code }}/LINEStorePC/preview.png" alt="สติ๊กเกอร์ไลน์ {{ $rs->name }}">
+<style>
+.tag a       { color:#0000de; text-decoration:none; }
+.tag a:link  { color:#0000de; text-decoration:none; }
+.tag a:visited { color:#0000de; text-decoration:none; }
+.tag a:hover { color:#cc6600; text-decoration:underline; }
+.stickerSub {
+    height: 80px;
+    margin: 5px 0px 25px 0px;
+}
+.stickerSub img{height: auto; width: 100%; margin: 5px auto;}
+@media screen and (min-width: 400px) {
+    .stickerSub {
+        height: 40px;
+        margin: 15px 0px 50px 0px;
+    }
+    .stickerSub img {
+        max-width: 100px;
+    }
+}
+@media screen and (min-width: 767px) {
+    .stickerSub {
+        height: 150px;
+        margin: 15px 0px 50px 0px;
+    }
+    .stickerSub img {
+        max-width: 120px;
+    }
+}
+</style>
+@if(count($rs->stamp) == 0)
+	<img class="img-responsive" src="https://sdl-stickershop.line.naver.jp/products/0/0/{{ $rs->version }}/{{ $rs->sticker_code }}/LINEStorePC/preview.png" alt="สติ๊กเกอร์ไลน์ {{ $rs->name }}">
+@else
+<div class="row">
+	<ul style="padding: 0px;">
+		@foreach($rs->stamp()->get() as $key=>$row)
+			<li class="stickerSub col-xs-3 col-sm-3 col-md-3" style="display:inline-block;">
+				<img src="https://stickershop.line-scdn.net/stickershop/v{{ $row->version }}/sticker/{{ $row->stamp_code }}/android/sticker.png;compress=true" anim-width="150%" anim-height="auto">
+				@if($row->tag != "")
+					<div class="tag small">
+						<a href="{{ url('tag/'.$row->tag) }}">{{ $row->tag }}</a>
+					</div>
+				@endif
+			</li>
+		@endforeach
+	</ul>
+</div>
+@endif
 @endsection
