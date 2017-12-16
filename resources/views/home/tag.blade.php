@@ -17,7 +17,7 @@
 						<div class="panel-body">
 						<a href="{{ url('sticker/'.$row->sticker->slug) }}">
 							<div class="img-cover">
-								<img class="img-responsive" src="https://stickershop.line-scdn.net/stickershop/v{{ $row->version }}/sticker/{{ $row->stamp_code }}/android/sticker.png;compress=true">
+								<img class="" src="https://stickershop.line-scdn.net/stickershop/v{{ $row->version }}/sticker/{{ $row->stamp_code }}/android/sticker.png;compress=true" height="124">
                             </div>
                             <h3>{{ $row->sticker->name }}</h3>
 						</a>

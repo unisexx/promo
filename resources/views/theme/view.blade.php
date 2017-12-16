@@ -1,6 +1,7 @@
 @extends('layouts.front_view')
 
 @section('content')
+<span id="shareData" data-type="theme" data-share_this="{{ $rs->theme_code }}"></span>
 <div class="clearfix">
 	<div class="col-xs-5 col-sm-5 col-md-4">
 		<img class="img-responsive" src="https://shop.line-scdn.net/themeshop/v1/products/{{ $rs->theme_path }}/WEBSTORE/icon_198x278.png" style="margin-right: 15px;">

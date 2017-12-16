@@ -1544,11 +1544,7 @@
             ],
             "description": "Symfony BrowserKit Component",
             "homepage": "https://symfony.com",
-<<<<<<< HEAD
             "time": "2017-12-11 22:06:16"
-=======
-            "time": "2017-11-07T14:20:24+00:00"
->>>>>>> b87795ba47bf5106ad00723eb2f0052a8a052908
         },
         {
             "name": "symfony/console",

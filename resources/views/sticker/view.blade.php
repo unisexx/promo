@@ -1,6 +1,7 @@
 @extends('layouts.front_view')
 
 @section('content')
+<span id="shareData" data-type="sticker" data-share_this="{{ $rs->sticker_code }}"></span>
 <div class="clearfix">
 	<div class="col-xs-5 col-sm-5 col-md-5 img-cover">
 		@if($rs->stickerresourcetype == 'ANIMATION')
@@ -63,8 +64,17 @@
 			<li class="stickerSub col-xs-3 col-sm-3 col-md-3" style="display:inline-block;">
 				<img src="https://stickershop.line-scdn.net/stickershop/v{{ $row->version }}/sticker/{{ $row->stamp_code }}/android/sticker.png;compress=true" anim-width="150%" anim-height="auto">
 				@if($row->tag != "")
+					@php
+						$tags = explode(',',$row->tag);
+					@endphp
 					<div class="tag small">
-						<a href="{{ url('tag/'.$row->tag) }}">{{ $row->tag }}</a>
+						@php
+							$myArray = "";
+							foreach($tags as $key){
+								$myArray[] = '<a href="'.url('tag/'.trim($key)).'">'.trim($key).'</a>';
+							}
+							echo str_replace(',',' |',implode( ', ', $myArray ));
+						@endphp
 					</div>
 				@endif
 			</li>

@@ -33,6 +33,14 @@
         });
         //Fire it when the page first loads:
         alterClass();
+
+        var shareData = $('#shareData').data('share_this');
+        var dataType = $('#shareData').data('type');
+        if(dataType == 'sticker'){
+            $('.btn-reddit').attr("href", "https://line.me/S/sticker/"+shareData);
+        }else if(dataType == 'theme'){
+            $('.btn-reddit').attr("href", "https://line.me/S/shop/theme/detail?id="+shareData);
+        }
     });
 
     function goBack() {
