@@ -27,10 +27,10 @@
 
 <hr>
 <style>
-.tag a       { color:#0000de; text-decoration:none; }
+/* .tag a       { color:#0000de; text-decoration:none; }
 .tag a:link  { color:#0000de; text-decoration:none; }
 .tag a:visited { color:#0000de; text-decoration:none; }
-.tag a:hover { color:#cc6600; text-decoration:underline; }
+.tag a:hover { color:#cc6600; text-decoration:underline; } */
 .stickerSub {
     height: 80px;
     margin: 5px 0px 25px 0px;
@@ -76,4 +76,42 @@
 	</ul>
 </div>
 @endif
+
+
+
+<div class="row">
+	<div class="col-md-12">
+		<div class="box box-default">
+			<div class="box-header with-border">
+				<span class="more pull-right">
+					<a href="{{ url('author/'.$rs->user_id) }}">ดูเพิ่มเติม ></a>
+				</span>
+				<h2 class="box-title">สติ๊กเกอร์ชุดอื่นๆของ <span class="text-green">{{ $rs->head_credit }}</span></h2>
+				<!-- /.box-tools -->
+			</div>
+			<!-- /.box-header -->
+			<div class="box-body">
+				@foreach($other as $row)
+				<div class="col-xs-4 col-sm-3 col-md-2">
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<a href="{{ url('sticker/'.$row->slug) }}">
+								<div class="img-cover">
+									<img class="img-responsive" src="https://sdl-stickershop.line.naver.jp/products/0/0/{{ $row->version }}/{{ $row->sticker_code }}/android/main.png"> @if($row->stickerresourcetype == 'ANIMATION')
+									<span class="MdIcoPlay_m">Animation only icon</span>
+									@endif
+								</div>
+								<h3>{{ $row->name }}</h3>
+							</a>
+						</div>
+					</div>
+				</div>
+				@endforeach
+			</div>
+			<!-- /.box-body -->
+		</div>
+		<!-- /.box -->
+	</div>
+</div>
+
 @endsection

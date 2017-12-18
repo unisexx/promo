@@ -64,6 +64,17 @@ class HomeController extends Controller
         return view('home', $data);
     }
 
+    public function author($user_id)
+    {
+        $data['sticker'] = new Sticker;
+        $data['sticker'] = $data['sticker']->where('user_id', $user_id)->orderBy('updated_at', 'desc')->get();
+
+        $data['theme'] = new Theme;
+        $data['theme'] = $data['theme']->where('user_id', $user_id)->orderBy('updated_at', 'desc')->get();
+
+        return view('home.author', $data);
+    }
+
     public function tag($tag)
     {
         $data['tag'] = $tag;

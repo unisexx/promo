@@ -88,7 +88,7 @@
     .mediablk{margin-top:5px; border-bottom:1px dashed #ddd; padding-bottom:5px;}
     .mediablk .panel{margin-bottom:0px;}
     .mediablk .panel-body h2{text-align:left;}
-    .h2sidebar{font-size:16px; line-height: 1.5; padding:10px; margin-top:0px; font-weight:bold;}
+    .h2sidebar{font-size:16px; line-height: 1.5; padding:10px 0px; margin-top:0px;margin-bottom:0px; font-weight:bold;}
     .h3sidebar{font-size:16px; line-height: 1.5;}
     .table > thead > tr > th, .table > thead > tr > td {
         border: 0;
@@ -121,6 +121,7 @@
 		-webkit-box-orient: vertical;
 		margin-top:10px;
 	}
+    
 
     .icon-bar {
         width: 100%;
@@ -160,7 +161,7 @@
     .img-cover{position: relative;}
     .box{border:none !important; box-shadow:none !important;}
     .box-title{color:#000; font-weight: bold;}
-
+    .box-body{padding:10px 0 !important;}
 
     /* icon */
     .img-cover .MdIcoSound_b, .img-cover .MdIcoPlay_b, .img-cover .MdIcoAni_b, .img-cover .MdIcoFlash_b, .img-cover .MdIcoFlashAni_b,.img-cover .MdIcoPlay_m {
