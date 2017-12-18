@@ -16,10 +16,10 @@
 					<div class="panel panel-default">
 						<div class="panel-body">
 						<a href="{{ url('sticker/'.$row->sticker->slug) }}">
-							<div class="img-cover" style="height:150px;">
-								<img class="img-responsive" src="https://stickershop.line-scdn.net/stickershop/v{{ $row->version }}/sticker/{{ $row->stamp_code }}/android/sticker.png;compress=true">
-                            </div>
-                            <h3>{{ $row->sticker->name }}</h3>
+							<div class="img-cover">
+								<img class="img-responsive" src="https://stickershop.line-scdn.net/stickershop/v{{ $row->version }}/sticker/{{ $row->stamp_code }}/android/sticker.png;compress=true" width="124" height="124">
+							</div>
+							<h3>{{ $row->sticker->name }}</h3>
 						</a>
 						</div>
 					</div>
@@ -28,7 +28,7 @@
 			</div>
 			<!-- /.box-body -->
 			<div class="box-footer text-center">
-				{{-- $stamp->appends(@$_GET)->render() --}}
+			{{-- $stamp->appends(@$_GET)->render() --}}
 			</div>
 			<!-- /.box-footer -->
 		</div>

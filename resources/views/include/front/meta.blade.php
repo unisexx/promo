@@ -137,12 +137,13 @@
         /* border-right: 1px solid #9d9d9d; */
     }
     .icon-bar-wrap{ 
-        background:#464E65; 
+        background:#222; 
         position: fixed;
         bottom: 0px;
         right: 0;
         left: 0;
         opacity: 0.9;
+        z-index: 9999;
     }
 
 	/* not requied only for demo * */
@@ -199,8 +200,8 @@
         width: 32px;
         height: 32px;
         font-size: 40px;
-        color: #9197AF;
-        opacity: 0.8;
+        color: #222;
+        opacity: 0.6;
     }
     #footer-back-to-top.offscreen {
     bottom: -100px;
@@ -212,7 +213,7 @@
         -webkit-transform: scaleX(-1);
         -o-transform: scaleX(-1);
         -ms-transform: scaleX(-1);
-        color: #9197AF;
+        color: #222;
         position: fixed;
         right: 5px;
         bottom: 85px;
@@ -221,7 +222,7 @@
         width: 40px;
         height: 40px;
         font-size: 40px;
-        opacity: 0.8;
+        opacity: 0.6;
         text-align: center;
     }
 

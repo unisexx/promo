@@ -39,19 +39,13 @@
 @media screen and (min-width: 400px) {
     .stickerSub {
         height: 40px;
-        margin: 15px 0px 50px 0px;
-    }
-    .stickerSub img {
-        max-width: 100px;
+        margin: 15px 0px 60px 0px;
     }
 }
 @media screen and (min-width: 767px) {
     .stickerSub {
         height: 150px;
-        margin: 15px 0px 50px 0px;
-    }
-    .stickerSub img {
-        max-width: 120px;
+        margin: 15px 0px 60px 0px;
     }
 }
 </style>
@@ -59,9 +53,9 @@
 	<img class="img-responsive" src="https://sdl-stickershop.line.naver.jp/products/0/0/{{ $rs->version }}/{{ $rs->sticker_code }}/LINEStorePC/preview.png" alt="สติ๊กเกอร์ไลน์ {{ $rs->name }}">
 @else
 <div class="row">
-	<ul style="padding: 0px;">
+	<ul class="clearfix" style="padding-left: 10px;padding-right: 10px;">
 		@foreach($rs->stamp()->get() as $key=>$row)
-			<li class="stickerSub col-xs-3 col-sm-3 col-md-3" style="display:inline-block;">
+			<li class="stickerSub col-xs-3 col-sm-3 col-md-3" style="display:inline-block;padding-left:5px;padding-right:5px;">
 				<img src="https://stickershop.line-scdn.net/stickershop/v{{ $row->version }}/sticker/{{ $row->stamp_code }}/android/sticker.png;compress=true" anim-width="150%" anim-height="auto">
 				@if($row->tag != "")
 					@php
