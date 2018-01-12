@@ -44,6 +44,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::controller('sticker', 'StickerController');
         Route::controller('theme', 'ThemeController');
         Route::controller('page', 'PageController');
+        Route::controller('lucky', 'LuckyController');
     });
 
 }); //middleware
