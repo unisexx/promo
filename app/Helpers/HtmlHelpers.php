@@ -40,3 +40,16 @@ if (!function_exists('getUrlFromText')) {
 		return $matches[0];
 	}
 }
+
+if (!function_exists('deleteDuplicate')) {
+	function deleteDuplicate()
+	{
+		DB::unprepared('delete n1 
+        from
+            stickers n1,
+            stickers n2 
+        where
+            n1.id > n2.id 
+            and n1.sticker_code = n2.sticker_code');
+	}
+}
