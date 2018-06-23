@@ -83,7 +83,7 @@ class StickerController extends Controller
 			'sticker_code' => $sticker_code,
 			'name' => $sticker_name,
 			'description' => $sticker_description,
-			'price' => $sticker_price,
+			'price' => trim($sticker_price),
 			'head_credit' => $head_credit,
 			'foot_credit' => $foot_credit,
 			'user_id' => Auth::user()->id,
@@ -163,8 +163,9 @@ class StickerController extends Controller
 		// dump($head_credit);
 		// dump($sticker_name);
 		// dump($sticker_description);
-		// dump($sticker_price);
+		// dump(trim($sticker_price));
 		// dump($foot_credit);
+		// exit();
 
 		$image_cover_path = explode("/", $image_cover);
 		$version = str_replace('v', '', $image_cover_path[4]);
@@ -186,7 +187,7 @@ class StickerController extends Controller
 			'sticker_code' => $sticker_code,
 			'name' => $sticker_name,
 			'description' => $sticker_description,
-			'price' => $sticker_price,
+			'price' => trim($sticker_price),
 			'head_credit' => $head_credit,
 			'foot_credit' => $foot_credit,
 			'user_id' => Auth::user()->id,

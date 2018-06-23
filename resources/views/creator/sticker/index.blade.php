@@ -66,6 +66,9 @@
       </div>
       <!-- /.row -->
     </section>
+
+    @widget('backendAds')
+
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
