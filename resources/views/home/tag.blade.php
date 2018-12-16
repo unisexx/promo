@@ -10,7 +10,7 @@
 			<!-- /.box-tools -->
 			</div>
 			<!-- /.box-header -->
-			<div class="box-body">
+			<div class="box-body" style="display: flex; flex-wrap: wrap;">
 			@foreach($stamp as $row)
 				<div class="col-xs-4 col-sm-3 col-md-2">
 					<div class="panel panel-default">
