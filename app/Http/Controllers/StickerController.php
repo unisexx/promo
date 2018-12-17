@@ -45,7 +45,7 @@ class StickerController extends Controller
 		SEO::setTitle($data['rs']->name . ' - สติ๊กเกอร์ไลน์');
 		SEO::setDescription('สติ๊กเกอร์ไลน์' . $data['rs']->description);
 		SEO::opengraph()->setUrl(url()->current());
-		SEO::addImages('http://sdl-stickershop.line.naver.jp/products/0/0/' . $data['rs']->version . '/' . $data['rs']->sticker_code . '/LINEStorePC/main@2x.png');
+		SEO::addImages('http://sdl-stickershop.line.naver.jp/products/0/0/' . $data['rs']->version . '/' . $data['rs']->sticker_code . '/LINEStorePC/main.png');
 		SEO::twitter()->setSite('@line2me_th');
 		SEOMeta::setKeywords('line, sticker, theme, creator, animation, sound, popup, ไลน์, สติ๊กเกอร์, ธีม, ครีเอเทอร์, ดุ๊กดิ๊ก, มีเสียง, ป๊อปอัพ');
 		SEOMeta::addKeyword('line, sticker, theme, creator, animation, sound, popup, ไลน์, สติ๊กเกอร์, ธีม, ครีเอเทอร์, ดุ๊กดิ๊ก, มีเสียง, ป๊อปอัพ');
