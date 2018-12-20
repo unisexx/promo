@@ -16,7 +16,7 @@ class Kernel extends HttpKernel
         \Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode::class,
         
         // appending custom middleware ทำ https
-        'App\Http\Middleware\HttpsProtocol',
+        // 'App\Http\Middleware\HttpsProtocol',
     ];
 
     /**
