@@ -84,3 +84,19 @@ if(!function_exists('getStickerResourctTypeIcon'))
 		}
 	}
 }
+
+
+if(!function_exists('get_sticker_img_url'))
+{
+	function get_sticker_img_url($stickerresourcetype,$version,$sticker_code){
+		if($stickerresourcetype == 'ANIMATION' || $stickerresourcetype == 'ANIMATION_SOUND'){
+			$imgUrl = 'https://stickershop.line-scdn.net/stickershop/v'.$version.'/product/'.$sticker_code.'/IOS/main_animation@2x.png';
+		}elseif($stickerresourcetype == 'POPUP' || $stickerresourcetype == 'POPUP_SOUND'){
+			$imgUrl = 'https://sdl-stickershop.line.naver.jp/stickershop/v'.$version.'/product/'.$sticker_code.'/IOS/main_popup.png';
+		}else{
+			$imgUrl = 'https://sdl-stickershop.line.naver.jp/products/0/0/'.$version.'/'.$sticker_code.'/LINEStorePC/main.png';
+		}
+		
+		return $imgUrl;
+	}
+}

@@ -1,42 +1,28 @@
-@extends('layouts.front')
+@extends('layouts.nitro')
 
 @section('content')
 
-<div class="row">
-	<div class="col-md-12">
-		<div class="box box-default">
-			<div class="box-header with-border">
-			<h2 class="box-title">สติ๊กเกอร์ไลน์</h2>
-			<!-- /.box-tools -->
-			</div>
-			<!-- /.box-header -->
-			<div class="box-body">
-			@foreach($sticker as $row)
-				<div class="col-xs-4 col-sm-3 col-md-2">
-					<div class="panel panel-default">
-						<div class="panel-body">
-						<a href="{{ url('sticker/'.$row->slug) }}">
-							<div class="img-cover">
-								<img class="img-responsive" src="https://sdl-stickershop.line.naver.jp/products/0/0/{{ $row->version }}/{{ $row->sticker_code }}/android/main.png">
-								@if($row->stickerresourcetype == 'ANIMATION')
-									<span class="MdIcoPlay_m">Animation only icon</span>
-								@endif
-							</div>
-							<h3>{{ $row->name }}</h3>
-						</a>
-						</div>
-					</div>
+<div class="fh5co-narrow-content">
+	<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">สติ๊กเกอร์ไลน์ครีเอเตอร์</h2>
+
+	<div class="animate-box d-flex flex-wrap justify-content-around" data-animate-effect="fadeInLeft">
+		@foreach($sticker as $row)
+		<div class="work-item text-center">
+			{!! new_icon($row->created_at) !!}
+			<a href="{{ url('sticker/'.$row->slug) }}">
+				<div class="sticker-image-cover">
+					<img src="https://sdl-stickershop.line.naver.jp/products/0/0/{{ $row->version }}/{{ $row->sticker_code }}/android/main.png" alt="สติ๊กเกอร์ไลน์ {{ $row->title_th }}" class="img-fluid">
+					{!! getStickerResourctTypeIcon($row->stickerresourcetype) !!}
 				</div>
-			@endforeach
-			</div>
-			<!-- /.box-body -->
-			<div class="box-footer text-center">
-				{{ $sticker->appends(@$_GET)->render() }}
-			</div>
-			<!-- /.box-footer -->
+				<h3 class="fh5co-work-title">{{ $row->name }}</h3>
+				<p>{{ $row->price }}</p>
+			</a>
 		</div>
-		<!-- /.box -->
+		@endforeach
+		<div class="clearfix visible-md-block"></div>
+		{{ $sticker->appends(@$_GET)->render() }}
 	</div>
 </div>
+
 
 @endsection

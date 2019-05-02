@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Models\Sticker;
 use App\Models\Theme;
+use App\Models\Emoji;
 use App\Models\Stamp;
 
 use DB;
@@ -44,6 +45,10 @@ class HomeController extends Controller
 
         $data['theme'] = new Theme;
         $data['theme'] = $data['theme']->orderBy('updated_at', 'desc')->take(12)->get();
+
+        $data['emoji'] = new Emoji;
+        $data['emoji'] = $data['emoji']->orderBy('updated_at', 'desc')->take(12)->get();
+        
         return view('home', $data);
     }
 

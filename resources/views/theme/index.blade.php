@@ -1,36 +1,23 @@
-@extends('layouts.front')
+@extends('layouts.nitro')
 
 @section('content')
 
-<div class="row">
-	<div class="col-md-12">
-		<div class="box box-default">
-			<div class="box-header with-border">
-			<h2 class="box-title">ธีมไลน์</h2>
-			<!-- /.box-tools -->
-			</div>
-			<!-- /.box-header -->
-			<div class="box-body">
-			@foreach($theme as $row)
-				<div class="col-xs-4 col-sm-3 col-md-2">
-					<div class="panel panel-default">
-						<div class="panel-body">
-						<a href="{{ url('theme/'.$row->slug) }}">
-							<div><img class="img-responsive" src="https://shop.line-scdn.net/themeshop/v1/products/{{ $row->theme_path }}/WEBSTORE/icon_136x190.png"></div>
-							<h3>{{ $row->name }}</h3>
-						</a>
-						</div>
-					</div>
-				</div>
-			@endforeach
-			</div>
-			<!-- /.box-body -->
-			<div class="box-footer text-center">
-				{{ $theme->appends(@$_GET)->render() }}
-			</div>
-			<!-- /.box-footer -->
+<div class="fh5co-narrow-content">
+	<h2 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">ธีมไลน์ครีเอเตอร์</h2>
+
+	<div class="animate-box d-flex flex-wrap justify-content-around" data-animate-effect="fadeInLeft">
+		@foreach($theme as $row)
+		<div class="work-item text-center">
+			{!! new_icon($row->created_at) !!}
+			<a href="{{ url('theme/'.$row->slug) }}">
+				<img src="https://shop.line-scdn.net/themeshop/v1/products/li/st/kr/{{ $row->theme_code }}/1/WEBSTORE/icon_198x278.png" alt="ธีมไลน์ {{ $row->name }}" class="img-fluid">
+				<h3 class="fh5co-work-title">{{ $row->name }}</h3>
+				<p>{{ $row->price }} บาท</p>
+			</a>
 		</div>
-		<!-- /.box -->
+		@endforeach
+		<div class="clearfix visible-md-block"></div>
+		{{ $theme->appends(@$_GET)->render() }}
 	</div>
 </div>
 
