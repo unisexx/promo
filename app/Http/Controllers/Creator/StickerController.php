@@ -43,17 +43,17 @@ class StickerController extends Controller
 		$sticker_code = $rq->sticker_code;
 		$crawler = Goutte::request('GET', 'https://store.line.me/stickershop/product/' . $sticker_code . '/th');
 		
-		// check node empty
-		if ($crawler->filter('div.mdCMN08Img > img')->count() == 0) {
+		// check node empty ถ้าไม่เจอแสดงว่าข้อมูลไม่ถูกต้อง
+		if ($crawler->filter('img.FnImage')->count() == 0) {
 			set_notify('error', "ข้อมูลไม่ถูกต้อง");
 			return redirect()->back();
 		}
 
-		$image_cover = $crawler->filter('div.mdCMN08Img > img')->attr('src');
-		$head_credit = $crawler->filter('p.mdCMN08Copy > a')->text();
-		$sticker_name = $crawler->filter('h3.mdCMN08Ttl')->text();
-		$sticker_description = $crawler->filter('p.mdCMN08Desc')->text();
-		$sticker_price = $crawler->filter('p.mdCMN08Price')->text();
+		$image_cover = $crawler->filter('img.FnImage')->attr('src');
+		$head_credit = $crawler->filter('a.mdCMN38Item01Author')->text();
+		$sticker_name = $crawler->filter('p.mdCMN38Item01Ttl')->text();
+		$sticker_description = $crawler->filter('p.mdCMN38Item01Txt')->text();
+		$sticker_price = $crawler->filter('p.mdCMN38Item01Price')->text();
 		$foot_credit = $crawler->filter('p.mdCMN09Copy')->text();
 
 		// dump($image_cover);
@@ -152,11 +152,11 @@ class StickerController extends Controller
 
 		$sticker_code = $rs->sticker_code;
 		$crawler = Goutte::request('GET', 'https://store.line.me/stickershop/product/' . $sticker_code . '/th');
-		$image_cover = $crawler->filter('div.mdCMN08Img > img')->attr('src');
-		$head_credit = $crawler->filter('p.mdCMN08Copy > a')->text();
-		$sticker_name = $crawler->filter('h3.mdCMN08Ttl')->text();
-		$sticker_description = $crawler->filter('p.mdCMN08Desc')->text();
-		$sticker_price = $crawler->filter('p.mdCMN08Price')->text();
+		$image_cover = $crawler->filter('img.FnImage')->attr('src');
+		$head_credit = $crawler->filter('a.mdCMN38Item01Author')->text();
+		$sticker_name = $crawler->filter('p.mdCMN38Item01Ttl')->text();
+		$sticker_description = $crawler->filter('p.mdCMN38Item01Txt')->text();
+		$sticker_price = $crawler->filter('p.mdCMN38Item01Price')->text();
 		$foot_credit = $crawler->filter('p.mdCMN09Copy')->text();
 		
 		// dump($image_cover);

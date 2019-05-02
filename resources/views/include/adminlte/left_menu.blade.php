@@ -41,7 +41,8 @@
         <li {{ request()->segment(2) == 'dashboard' ? 'class=active' : '' }}><a href="{{ url('creator/dashboard') }}"><i class="fa fa-link"></i> <span>Dashboard</span></a></li>
         <li {{ request()->segment(2) == 'sticker' ? 'class=active' : '' }}><a href="{{ url('creator/sticker') }}"><i class="fa fa-link"></i> <span>Sticker</span></a></li>
         <li {{ request()->segment(2) == 'theme' ? 'class=active' : '' }}><a href="{{ url('creator/theme') }}"><i class="fa fa-link"></i> <span>Theme</span></a></li>
-        <li {{ request()->segment(2) == 'lucky' ? 'class=active' : '' }}><a href="{{ url('creator/lucky') }}"><i class="fa fa-link"></i> <span>Lucky Draw</span></a></li>
+        <li {{ request()->segment(2) == 'emoji' ? 'class=active' : '' }}><a href="{{ url('creator/emoji') }}"><i class="fa fa-link"></i> <span>Emoji</span></a></li>
+        <!-- <li {{ request()->segment(2) == 'lucky' ? 'class=active' : '' }}><a href="{{ url('creator/lucky') }}"><i class="fa fa-link"></i> <span>Lucky Draw</span></a></li> -->
 
         <li class="header">Page</li>
         <li><a href="creator/page/view/6"><i class="fa fa-circle-o text-aqua"></i> <span>วิธีใช้งานเบื้องต้น</span></a></li>

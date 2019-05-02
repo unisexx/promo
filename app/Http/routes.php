@@ -43,6 +43,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::controller('dashboard', 'DashboardController');
         Route::controller('sticker', 'StickerController');
         Route::controller('theme', 'ThemeController');
+        Route::controller('emoji', 'EmojiController');
         Route::controller('page', 'PageController');
         Route::controller('lucky', 'LuckyController');
     });

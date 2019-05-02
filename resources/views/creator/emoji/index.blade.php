@@ -23,8 +23,8 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">ธีมไลน์</h3>
-              <a href="{{ url('creator/theme/form') }}">
+              <h3 class="box-title">อิโมจิไลน์</h3>
+              <a href="{{ url('creator/emoji/form') }}">
                 <button type="button" class="btn btn-default pull-right"><i class="fa fa-plus"></i> เพิ่มรายการ</button>
               </a>
             </div>
@@ -43,14 +43,14 @@
                 <tbody>
                 	@foreach($rs as $row)
                 		<tr>
-		                  <td><img src="https://shop.line-scdn.net/themeshop/v1/products/{{ $row->theme_path }}/WEBSTORE/icon_136x190.png" width="90"></td>
-		                  <td>{{ $row->name }}</td>
-		                  <td>{{ $row->description }}</td>
+		                  <td><img src="https://stickershop.line-scdn.net/sticonshop/v1/product/{{ $row->emoji_code }}/iphone/main.png" width="90"></td>
+		                  <td>{{ $row->title }}</td>
+		                  <td>{{ $row->detail }}</td>
 		                  <td>{{ $row->price }}</td>
 		                  <td>
-		                  	<a href="creator/theme/update/{{ $row->id }}" onclick="return confirm('ต้องการอัพเดทข้อมูลรายการนี้')"><button type="button" class="btn btn-warning  btn-xs">อัพเดทข้อมูล</button></a>
-		                  	<a href="creator/theme/delete/{{ $row->id }}" onclick="return confirm('ต้องการลบรายการนี้')"><button type="button" class="btn btn-danger btn-xs">ลบ</button></a>
-		                  	<a href="creator/theme/up/{{ $row->id }}" onclick="return confirm('ต้องการดันข้อมูลนี้')"><button type="button" class="btn btn-primary btn-xs">ดันข้อมูลขึ้นบนสุด</button></a>
+		                  	<a href="creator/emoji/update/{{ $row->id }}" onclick="return confirm('ต้องการอัพเดทข้อมูลรายการนี้')"><button type="button" class="btn btn-warning  btn-xs">อัพเดทข้อมูล</button></a>
+		                  	<a href="creator/emoji/delete/{{ $row->id }}" onclick="return confirm('ต้องการลบรายการนี้')"><button type="button" class="btn btn-danger btn-xs">ลบ</button></a>
+		                  	<a href="creator/emoji/up/{{ $row->id }}" onclick="return confirm('ต้องการดันข้อมูลนี้')"><button type="button" class="btn btn-primary btn-xs">ดันข้อมูลขึ้นบนสุด</button></a>
 		                  </td>
 		                </tr>
                 	@endforeach

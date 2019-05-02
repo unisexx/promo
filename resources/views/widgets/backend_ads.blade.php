@@ -1,5 +1,5 @@
 
-        <div class="col-sm-12 col-md-6">
+        <div class="col-sm-12">
             <div class="box box-solid">
                 <div class="box-body">
                     <h4 style="background-color:#f7f7f7; font-size: 18px; text-align: center; padding: 7px 10px; margin-top: 0;">
@@ -17,3 +17,4 @@
                 </div>
             </div>
         </div>
+        <br clear="all">
