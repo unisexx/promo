@@ -40,7 +40,7 @@
         <p>
             <small>
                 <span>&copy; 2019 Linepop.in.th All Rights Reserved.</span> 
-                <span>Designed by <a href="https://linepop.in.th/" target="_blank">Linesticker.in.th</a> </span> 
+                <span>Designed by <a href="https://linepop.in.th/" target="_blank">Linepop.in.th</a> </span> 
                 <!-- <span>Demo Images: <a href="http://unsplash.com/" target="_blank">Unsplash</a></span> -->
             </small>
         </p>
