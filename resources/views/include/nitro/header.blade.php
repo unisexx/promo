@@ -5,8 +5,8 @@
         <ul>
             <li class="fh5co-active"><a href="home">หน้าแรก</a></li>
             <li><a href="{{ url('sticker') }}">สติ๊กเกอร์ไลน์ครีเอเตอร์</a></li>
-            <li><a href="{{ url('emoji') }}">อิโมจิครีเอเตอร์</a></li>
             <li><a href="{{ url('theme') }}">ธีมไลน์ครีเอเตอร์</a></li>
+            <li><a href="{{ url('emoji') }}">อิโมจิครีเอเตอร์</a></li>
             <!-- <li><a href="{{ url('page/11') }}">ฝากซื้อ</a></li>
             <li><a href="{{ url('page/10') }}">ฝากขาย</a></li> -->
             <li><a href="{{ url('aboutus') }}">เกี่ยวกับเรา</a></li>

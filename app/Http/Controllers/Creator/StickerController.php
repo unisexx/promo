@@ -214,6 +214,13 @@ class StickerController extends Controller
 		$difference = $update->diffInMinutes($now);
 		$wait = 5 - $difference;
 
+		if(Auth::user()->no_delay == 1){
+			$model = Sticker::find($id);
+			$model->touch();
+			set_notify('success', trans('message.completeSave'));
+			return Redirect('creator/sticker/index');
+		}
+
 		if ($difference >= 5) {
 			$model = Sticker::find($id);
 			$model->touch();

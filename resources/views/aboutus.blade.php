@@ -6,7 +6,6 @@
 			<h2 class="fh5co-heading animate-box aboutus-heading" data-animate-effect="fadeInLeft">Linepop.in.th</h2>
 			<p class="fh5co-lead animate-box" data-animate-effect="fadeInLeft">บริการโปรโมทสติ๊กเกอร์ไลน์ ธีมไลน์ และอิโมจิไลน์ สำหรับครีเอเตอร์ ฟรี ไม่มีค่าใช้จ่าย...</p>
 			<p class="animate-box" data-animate-effect="fadeInLeft">สำหรับครีเอเตอร์ที่มี สติ๊กเกอร์ไลน์ ธีมไลน์ อิโมจิไลน์ แล้วอยากลองโปรโมท อยากเพิ่มยอดขาย สามารถใช้บริการได้เลย</p>
-			<p><a href="{{ url('login') }}">เข้าสู่ระบบ</a> | <a href="{{ url('register') }}">สมัครสมาชิก</a></p>
 		</div>
 		<div class="col-md-6 col-md-push-1 animate-box text-center" data-animate-effect="fadeInLeft">
 			<img src="https://stickershop.line-scdn.net/stickershop/v1/sticker/126927060/ANDROID/sticker.png;compress=true" alt="โปรโมท ฝากขาย สติ๊กเกอร์ไลน์ ธีมไลน์ อิโมจิไลน์ ฟรี ไม่มีค่าใช้จ่าย" class="img-fluid"> 

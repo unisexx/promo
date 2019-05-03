@@ -35,7 +35,6 @@
                 <tr>
                   <th data-priority="1">รูป</th>
                   <th>ชื่อ</th>
-                  <th>รายละเอียด</th>
                   <th>ราคา</th>
                   <th data-orderable="false" data-priority="2">จัดการ</th>
                 </tr>
@@ -45,7 +44,6 @@
                 		<tr>
 		                  <td><img src="https://shop.line-scdn.net/themeshop/v1/products/{{ $row->theme_path }}/WEBSTORE/icon_136x190.png" width="90"></td>
 		                  <td>{{ $row->name }}</td>
-		                  <td>{{ $row->description }}</td>
 		                  <td>{{ $row->price }}</td>
 		                  <td>
 		                  	<a href="creator/theme/update/{{ $row->id }}" onclick="return confirm('ต้องการอัพเดทข้อมูลรายการนี้')"><button type="button" class="btn btn-warning  btn-xs">อัพเดทข้อมูล</button></a>
