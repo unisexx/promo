@@ -37,8 +37,8 @@ class HomeController extends Controller
         SEO::opengraph()->setUrl(url()->current());
         SEO::addImages('https://i.imgur.com/M1FvcTu.png');
         SEO::twitter()->setSite('@line2me_th');
-        SEOMeta::setKeywords('line, sticker, theme, creator, animation, sound, popup, ไลน์, สติ๊กเกอร์, ธีม, ครีเอเทอร์, ดุ๊กดิ๊ก, มีเสียง, ป๊อปอัพ');
-        SEOMeta::addKeyword('line, sticker, theme, creator, animation, sound, popup, ไลน์, สติ๊กเกอร์, ธีม, ครีเอเทอร์, ดุ๊กดิ๊ก, มีเสียง, ป๊อปอัพ');
+        SEOMeta::setKeywords('line, sticker, theme, creator, animation, sound, popup, ไลน์, สติ๊กเกอร์, ธีม, ครีเอเทอร์, ดุ๊กดิ๊ก, มีเสียง, ป๊อปอัพ, อิโมจิ');
+        //  SEOMeta::addKeyword('line, sticker, theme, creator, animation, sound, popup, ไลน์, สติ๊กเกอร์, ธีม, ครีเอเทอร์, ดุ๊กดิ๊ก, มีเสียง, ป๊อปอัพ');
 
         $data['sticker'] = new Sticker;
         $data['sticker'] = $data['sticker']->orderBy('updated_at', 'desc')->take(12)->get();
@@ -90,5 +90,18 @@ class HomeController extends Controller
         $data['stamp'] = $data['stamp']->orderBy('updated_at', 'desc')->get();
 
         return view('home.tag', $data);
+    }
+
+    public function aboutus()
+    {
+        SEO::setTitle('เกี่ยวกับเรา');
+        SEO::setDescription('ข้อมูลเกี่ยวกับเว็บไซต์ขายสติ๊กเกอร์ไลน์ ธีมไลน์ อิโมจิไลน์ linepop.in.th ติดต่อไอดี ratasak1234');
+        // SEO::opengraph()->setUrl(url()->current());
+        // SEO::addImages('https://i.imgur.com/M1FvcTu.png');
+        // SEO::twitter()->setSite('@line2me_th');
+        // SEOMeta::setKeywords('line, sticker, theme, creator, animation, sound, popup, ไลน์, สติ๊กเกอร์, ธีม, ครีเอเทอร์, ดุ๊กดิ๊ก, มีเสียง, ป๊อปอัพ');
+        // SEOMeta::addKeyword('line, sticker, theme, creator, animation, sound, popup, ไลน์, สติ๊กเกอร์, ธีม, ครีเอเทอร์, ดุ๊กดิ๊ก, มีเสียง, ป๊อปอัพ');
+
+        return view('aboutus');
     }
 }

@@ -7,10 +7,23 @@
             <li><a href="{{ url('sticker') }}">สติ๊กเกอร์ไลน์ครีเอเตอร์</a></li>
             <li><a href="{{ url('emoji') }}">อิโมจิครีเอเตอร์</a></li>
             <li><a href="{{ url('theme') }}">ธีมไลน์ครีเอเตอร์</a></li>
-            <li><a href="{{ url('aboutus') }}">ฝากซื้อ</a></li>
-            <li><a href="{{ url('aboutus') }}">ฝากขาย</a></li>
+            <!-- <li><a href="{{ url('page/11') }}">ฝากซื้อ</a></li>
+            <li><a href="{{ url('page/10') }}">ฝากขาย</a></li> -->
             <li><a href="{{ url('aboutus') }}">เกี่ยวกับเรา</a></li>
-            <li><a href="{{ url('search') }}">ค้นหา</a></li>
+            <!-- <li><a href="{{ url('search') }}">ค้นหา</a></li> -->
+
+            <hr>
+
+            @if (Auth::guest())
+                <li><a href="{{ url('/login') }}">เข้าสู่ระบบ</a></li>
+                <li><a href="{{ url('/register') }}">สมัครสมาชิก</a></li>
+            @else
+                <li><a href="{{ url('/creator/dashboard') }}">จัดการข้อมูล</a></li>
+                <li><a href="{{ url('/logout') }}">ออกจากระบบ</a></li>
+            @endif
+
+            <hr>
+
         </ul>
     </nav>
 

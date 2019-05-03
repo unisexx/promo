@@ -25,8 +25,8 @@ class ThemeController extends Controller {
         return view('theme.index',$data);
     }
 	
-	public function getView($param = null){
-		$data['rs'] = Theme::where('slug', $param)->firstOrFail();
+	public function getView($id = null){
+		$data['rs'] = Theme::where('id', $id)->firstOrFail();
 
 		// SEO
 		SEO::setTitle($data['rs']->name.' - ธีมไลน์');
@@ -34,8 +34,8 @@ class ThemeController extends Controller {
 		SEO::opengraph()->setUrl(url()->current());
 		SEO::addImages('http://shop.line-scdn.net/themeshop/v1/products/'.$data['rs']->theme_path.'/WEBSTORE/icon_198x278.png');
 		SEO::twitter()->setSite('@line2me_th');
-		SEOMeta::setKeywords('line, sticker, theme, creator, animation, sound, popup, ไลน์, สติ๊กเกอร์, ธีม, ครีเอเทอร์, ดุ๊กดิ๊ก, มีเสียง, ป๊อปอัพ');
-		SEOMeta::addKeyword('line, sticker, theme, creator, animation, sound, popup, ไลน์, สติ๊กเกอร์, ธีม, ครีเอเทอร์, ดุ๊กดิ๊ก, มีเสียง, ป๊อปอัพ');
+		SEOMeta::setKeywords('line, sticker, theme, creator, animation, sound, popup, ไลน์, สติ๊กเกอร์, ธีม, ครีเอเทอร์, ดุ๊กดิ๊ก, มีเสียง, ป๊อปอัพ, อิโมจิ');
+		// SEOMeta::addKeyword('line, sticker, theme, creator, animation, sound, popup, ไลน์, สติ๊กเกอร์, ธีม, ครีเอเทอร์, ดุ๊กดิ๊ก, มีเสียง, ป๊อปอัพ');
 		OpenGraph::addProperty('image:width', '198');
 		OpenGraph::addProperty('image:height', '278');
 		

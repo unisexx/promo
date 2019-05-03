@@ -25,6 +25,7 @@ Route::get('home', 'HomeController@index');
 Route::get('search', 'HomeController@search');
 Route::get('author/{param}', 'HomeController@author');
 Route::get('tag/{param}', 'HomeController@tag');
+Route::get('aboutus', 'HomeController@aboutus');
 
 Route::get('/sticker', 'StickerController@getIndex');
 Route::get('/sticker/{param}', 'StickerController@getView');

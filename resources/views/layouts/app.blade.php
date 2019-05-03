@@ -57,7 +57,7 @@
 
     <!-- Header -->
 
-	@include('include.front.header')
+	{{-- @include('include.front.header') --}}
 
 
 

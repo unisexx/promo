@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 
 use App\Models\Sticker;
 use App\Models\Theme;
+use App\Models\Emoji;
 use App\Models\Page;
 
 use Form;
@@ -20,6 +21,7 @@ class DashboardController extends Controller
     {
         $data['sticker_count'] = Sticker::where('user_id', Auth::user()->id)->count();
         $data['theme_count'] = Theme::where('user_id', Auth::user()->id)->count();
+        $data['emoji_count'] = Emoji::where('user_id', Auth::user()->id)->count();
         $data['page'] = Page::find(12);
         return view('creator.dashboard.index', $data);
     }

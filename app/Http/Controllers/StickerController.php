@@ -29,9 +29,9 @@ class StickerController extends Controller
 		return view('sticker.index', $data);
 	}
 
-	public function getView($param = null)
+	public function getView($sticker_code)
 	{
-		$data['rs'] = Sticker::where('slug', $param)->firstOrFail();
+		$data['rs'] = Sticker::where('sticker_code', $sticker_code)->firstOrFail();
 
 		// สติ๊กเกอร์ชุดอื่นๆของครีเอเทอร์
 		$data['other'] = Sticker::where('user_id', $data['rs']->user_id)->where('id', '!=', $data['rs']->id)->inRandomOrder()->take(12)->get();
@@ -48,7 +48,7 @@ class StickerController extends Controller
 		SEO::addImages('http://sdl-stickershop.line.naver.jp/products/0/0/' . $data['rs']->version . '/' . $data['rs']->sticker_code . '/LINEStorePC/main.png');
 		SEO::twitter()->setSite('@line2me_th');
 		SEOMeta::setKeywords('line, sticker, theme, creator, animation, sound, popup, ไลน์, สติ๊กเกอร์, ธีม, ครีเอเทอร์, ดุ๊กดิ๊ก, มีเสียง, ป๊อปอัพ');
-		SEOMeta::addKeyword('line, sticker, theme, creator, animation, sound, popup, ไลน์, สติ๊กเกอร์, ธีม, ครีเอเทอร์, ดุ๊กดิ๊ก, มีเสียง, ป๊อปอัพ');
+		// SEOMeta::addKeyword('line, sticker, theme, creator, animation, sound, popup, ไลน์, สติ๊กเกอร์, ธีม, ครีเอเทอร์, ดุ๊กดิ๊ก, มีเสียง, ป๊อปอัพ');
 		OpenGraph::addProperty('image:width', '240');
 		OpenGraph::addProperty('image:height', '240');
 

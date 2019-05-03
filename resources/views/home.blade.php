@@ -44,7 +44,7 @@
 			@foreach($sticker as $row)
 			<div class="work-item text-center">
 				{!! new_icon($row->created_at) !!}
-				<a href="{{ url('sticker/'.$row->slug) }}">
+				<a href="{{ url('sticker/'.$row->sticker_code) }}">
 					<div class="sticker-image-cover">
 						<img src="https://sdl-stickershop.line.naver.jp/products/0/0/{{ $row->version }}/{{ $row->sticker_code }}/android/main.png" alt="สติ๊กเกอร์ไลน์ {{ $row->name }}" class="img-fluid">
 						{!! getStickerResourctTypeIcon($row->stickerresourcetype) !!}
@@ -68,7 +68,7 @@
 			@foreach($theme as $row)
 			<div class="work-item text-center">
 				{!! new_icon($row->created_at) !!}
-				<a href="{{ url('theme/'.$row->slug) }}">
+				<a href="{{ url('theme/'.$row->id) }}">
 					<img src="https://shop.line-scdn.net/themeshop/v1/products/li/st/kr/{{ $row->theme_code }}/1/WEBSTORE/icon_198x278.png" alt="ธีมไลน์ {{ $row->name }}" class="img-fluid">
 					<h3 class="fh5co-work-title">{{ $row->name }}</h3>
 					<p>{{ $row->price }} บาท</p>
