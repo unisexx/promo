@@ -61,6 +61,27 @@
 
 <div class="fh5co-narrow-content">
 	<div class="d-flex justify-content-between align-items-baseline animate-box" data-animate-effect="fadeInLeft">
+		<h2 class="fh5co-heading">อิโมจิไลน์ครีเอเตอร์</h2>
+		<p class="text-right read-more-text"><a href="{{ url('emoji') }}">ดูทั้งหมด ></a></p>
+	</div>
+		<div class="animate-box d-flex flex-wrap justify-content-around" data-animate-effect="fadeInLeft">
+			@foreach($emoji as $row)
+			<div class="work-item text-center">
+				{!! new_icon($row->created_at) !!}
+				<a href="{{ url('emoji/'.$row->id) }}">
+					<img src="https://stickershop.line-scdn.net/sticonshop/v1/product/{{ $row->emoji_code }}/iphone/main.png" alt="อิโมจิไลน์ {{ $row->title }}" class="img-fluid">
+					<h3 class="fh5co-work-title">{{ $row->title }}</h3>
+					<p>{{ $row->price }} บาท</p>
+				</a>
+			</div>
+			@endforeach
+		</div>
+</div>
+
+
+
+<div class="fh5co-narrow-content">
+	<div class="d-flex justify-content-between align-items-baseline animate-box" data-animate-effect="fadeInLeft">
 		<h2 class="fh5co-heading">ธีมไลน์ครีเอเตอร์</h2>
 		<p class="text-right read-more-text"><a href="{{ url('theme') }}">ดูทั้งหมด ></a></p>
 	</div>
@@ -71,26 +92,6 @@
 				<a href="{{ url('theme/'.$row->id) }}">
 					<img src="https://shop.line-scdn.net/themeshop/v1/products/li/st/kr/{{ $row->theme_code }}/1/WEBSTORE/icon_198x278.png" alt="ธีมไลน์ {{ $row->name }}" class="img-fluid">
 					<h3 class="fh5co-work-title">{{ $row->name }}</h3>
-					<p>{{ $row->price }} บาท</p>
-				</a>
-			</div>
-			@endforeach
-		</div>
-</div>
-
-
-<div class="fh5co-narrow-content">
-	<div class="d-flex justify-content-between align-items-baseline animate-box" data-animate-effect="fadeInLeft">
-		<h2 class="fh5co-heading">อิโมจิไลน์ครีเอเตอร์</h2>
-		<p class="text-right read-more-text"><a href="{{ url('theme') }}">ดูทั้งหมด ></a></p>
-	</div>
-		<div class="animate-box d-flex flex-wrap justify-content-around" data-animate-effect="fadeInLeft">
-			@foreach($emoji as $row)
-			<div class="work-item text-center">
-				{!! new_icon($row->created_at) !!}
-				<a href="{{ url('emoji/'.$row->id) }}">
-					<img src="https://stickershop.line-scdn.net/sticonshop/v1/product/{{ $row->emoji_code }}/iphone/main.png" alt="อิโมจิไลน์ {{ $row->title }}" class="img-fluid">
-					<h3 class="fh5co-work-title">{{ $row->title }}</h3>
 					<p>{{ $row->price }} บาท</p>
 				</a>
 			</div>
