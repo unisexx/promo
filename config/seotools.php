@@ -6,10 +6,10 @@ return [
          * The default configurations to be used by the meta generator.
          */
         'defaults'       => [
-            'title'        => "Linepop", // set false to total remove
-            'description'  => 'รวมสติกเกอร์ไลน์แนะนำ สติกเกอร์ไลน์ฮิต ยอดนิยม', // set false to total remove
+            'title'        => "โปรโมทไลน์ฟรีที่ Linepop.in.th", // set false to total remove
+            'description'  => 'โปรโมทไลน์ฟรี ไม่มีค่าใช้จ่าย เพียงแค่สมัคร์สมาชิกแล้วทำการโปรโมทด้วยตัวเองได้เลย', // set false to total remove
             'separator'    => ' - ',
-            'keywords'     => [],
+            'keywords'     => ['โปรโมทไลน์, โปรโมทไลน์ฟรี, โปรโมทสติ๊กเกอร์ไลน์ฟรี, โปรโมทธีมไลน์ฟรี, โปรโมทอิโมจิไลน์ฟรี, line, sticker, theme, creator, animation, sound, popup, ไลน์, สติ๊กเกอร์, ธีม, ครีเอเทอร์, ดุ๊กดิ๊ก, มีเสียง, ป๊อปอัพ, อิโมจิ'],
             'canonical'    => false, // Set null for using Url::current(), set false to total remove
         ],
 
@@ -29,8 +29,8 @@ return [
          * The default configurations to be used by the opengraph generator.
          */
         'defaults' => [
-            'title'       => 'Linepop', // set false to total remove
-            'description' => 'รวมสติกเกอร์ไลน์แนะนำ สติกเกอร์ไลน์ฮิต ยอดนิยม', // set false to total remove
+            'title'       => 'โปรโมทสติ๊กเกอร์ไลน์ฟรีกับ Linepop.in.th', // set false to total remove
+            'description' => 'โปรโมทไลน์ฟรี ไม่มีค่าใช้จ่าย เพียงแค่สมัคร์สมาชิกแล้วทำการโปรโมทด้วยตัวเองได้เลย', // set false to total remove
             'url'         => false, // Set null for using Url::current(), set false to total remove
             'type'        => false,
             'site_name'   => false,

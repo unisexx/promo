@@ -29,12 +29,12 @@ class ThemeController extends Controller {
 		$data['rs'] = Theme::where('id', $id)->firstOrFail();
 
 		// SEO
-		SEO::setTitle($data['rs']->name.' - ธีมไลน์');
+		SEO::setTitle('ธีมไลน์'.$data['rs']->name);
 		SEO::setDescription('ธีมไลน์'.$data['rs']->description);
 		SEO::opengraph()->setUrl(url()->current());
 		SEO::addImages('http://shop.line-scdn.net/themeshop/v1/products/'.$data['rs']->theme_path.'/WEBSTORE/icon_198x278.png');
 		SEO::twitter()->setSite('@line2me_th');
-		SEOMeta::setKeywords('line, sticker, theme, creator, animation, sound, popup, ไลน์, สติ๊กเกอร์, ธีม, ครีเอเทอร์, ดุ๊กดิ๊ก, มีเสียง, ป๊อปอัพ, อิโมจิ');
+		// SEOMeta::setKeywords('line, sticker, theme, creator, animation, sound, popup, ไลน์, สติ๊กเกอร์, ธีม, ครีเอเทอร์, ดุ๊กดิ๊ก, มีเสียง, ป๊อปอัพ, อิโมจิ');
 		// SEOMeta::addKeyword('line, sticker, theme, creator, animation, sound, popup, ไลน์, สติ๊กเกอร์, ธีม, ครีเอเทอร์, ดุ๊กดิ๊ก, มีเสียง, ป๊อปอัพ');
 		OpenGraph::addProperty('image:width', '198');
 		OpenGraph::addProperty('image:height', '278');

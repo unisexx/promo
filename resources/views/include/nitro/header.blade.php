@@ -38,6 +38,8 @@
 
     <div class="fh5co-footer">
         <p>
+            linepop.in.th เว็บไซต์ที่ให้บริการโปรโมท สติ๊กเกอร์ไลน์ อิโมจิไลน์ ธีมไลน์ฟรี ไม่มีค่าใช้จ่าย สำหรับครีเอเตอร์ทุกท่าน สอบถามข้อมูลเพิ่มเติมติดต่อไลน์ไอดี <a href="http://line.me/ti/p/~ratasak1234" target="_blank">ratasak1234</a>
+            <hr>
             <small>
                 <span>&copy; 2019 Linepop.in.th All Rights Reserved.</span> 
                 <span>Designed by <a href="https://linepop.in.th/" target="_blank">Linepop.in.th</a> </span> 

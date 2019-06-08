@@ -29,7 +29,7 @@ class EmojiController extends Controller {
 		$data['rs'] = Emoji::where('id', $id)->firstOrFail();
 
 		// SEO
-		SEO::setTitle($data['rs']->name.' - อิโมจิไลน์');
+		SEO::setTitle('อิโมจิไลน์'.$data['rs']->name);
 		SEO::setDescription('อิโมจิไลน์'.$data['rs']->description);
 		SEO::opengraph()->setUrl(url()->current());
 		SEO::addImages('http://shop.line-scdn.net/emojishop/v1/products/'.$data['rs']->emoji_path.'/WEBSTORE/icon_198x278.png');
