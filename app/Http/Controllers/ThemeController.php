@@ -21,7 +21,7 @@ class ThemeController extends Controller {
 		SEO::setDescription('รวมธีมไลน์ขายดี แนะนำ ฮิตๆ ยอดนิยม');
 
     	$data['theme'] = new Theme;
-    	$data['theme'] = $data['theme']->orderBy('updated_at','desc')->paginate(30);
+    	$data['theme'] = $data['theme']->orderBy('updated_at','desc')->simplePaginate(30);
         return view('theme.index',$data);
     }
 	

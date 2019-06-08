@@ -25,7 +25,7 @@ class StickerController extends Controller
 		SEO::setDescription('รวมสติ๊กเกอร์ไลน์ขายดี แนะนำ ฮิตๆ ยอดนิยม');
 
 		$data['sticker'] = new Sticker;
-		$data['sticker'] = $data['sticker']->orderBy('updated_at', 'desc')->paginate(30);
+		$data['sticker'] = $data['sticker']->orderBy('updated_at', 'desc')->simplePaginate(30);
 		return view('sticker.index', $data);
 	}
 

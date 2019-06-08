@@ -21,7 +21,7 @@ class EmojiController extends Controller {
 		SEO::setDescription('รวมอิโมจิไลน์ขายดี แนะนำ ฮิตๆ ยอดนิยม');
 
     	$data['emoji'] = new Emoji;
-    	$data['emoji'] = $data['emoji']->orderBy('updated_at','desc')->paginate(30);
+    	$data['emoji'] = $data['emoji']->orderBy('updated_at','desc')->simplePaginate(30);
         return view('emoji.index',$data);
     }
 	
