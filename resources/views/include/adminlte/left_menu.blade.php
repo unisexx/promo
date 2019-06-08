@@ -48,6 +48,9 @@
         <li><a href="creator/page/view/6"><i class="fa fa-circle-o text-aqua"></i> <span>วิธีใช้งานเบื้องต้น</span></a></li>
         <li><a href="creator/page/view/8"><i class="fa fa-circle-o text-red"></i> <span>การอ้างสิทธิ์ในการเป็นเจ้าของ</span></a></li>
 
+        <li class="header"></li>
+        <li><a href="logout"><i class="fa fa-sign-out"></i> <span>ออกจากระบบ</span></a></li>
+
         <!-- <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li> -->
         <!-- <li class="treeview">
           <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
