@@ -7,7 +7,6 @@
 
   gtag('config', 'UA-11835891-8');
 </script>
-
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta http-equiv="content-language" content="th" />
