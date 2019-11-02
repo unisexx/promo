@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers\Creator;
 
 use Illuminate\Http\Request;
@@ -42,7 +43,7 @@ class StickerController extends Controller
 
 		$sticker_code = $rq->sticker_code;
 		$crawler = Goutte::request('GET', 'https://store.line.me/stickershop/product/' . $sticker_code . '/th');
-		
+
 		// check node empty ถ้าไม่เจอแสดงว่าข้อมูลไม่ถูกต้อง
 		if ($crawler->filter('img.FnImage')->count() == 0) {
 			set_notify('error', "ข้อมูลไม่ถูกต้อง");
@@ -70,7 +71,7 @@ class StickerController extends Controller
 		curl_setopt($curlSession, CURLOPT_URL, 'http://dl.stickershop.line.naver.jp/products/0/0/' . $version . '/' . $sticker_code . '/LINEStorePC/productInfo.meta');
 		curl_setopt($curlSession, CURLOPT_BINARYTRANSFER, true);
 		curl_setopt($curlSession, CURLOPT_RETURNTRANSFER, true);
-        // $jsonData = json_decode(curl_exec($curlSession));
+		// $jsonData = json_decode(curl_exec($curlSession));
 		$result = curl_exec($curlSession);
 		curl_close($curlSession);
 		$json = json_decode($result, true);
@@ -99,8 +100,8 @@ class StickerController extends Controller
 		// Sticker Detail Stamp Save
 		for ($i = 0; $i < 40; $i++) {
 			// check node empty
-			if ($crawler->filter('.mdCMN09Image')->eq($i)->count() != 0) {
-				$imgTxt = $crawler->filter('.mdCMN09Image')->eq($i)->attr('style');
+			if ($crawler->filter('span.mdCMN09Image.FnCustomBase')->eq($i)->count() != 0) {
+				$imgTxt = $crawler->filter('span.mdCMN09Image.FnCustomBase')->eq($i)->attr('style');
 				$image_path = explode("/", getUrlFromText($imgTxt));
 				$stamp_code = $image_path[6];
 				// dump($stamp_code);
@@ -132,7 +133,7 @@ class StickerController extends Controller
 		}
 		return Redirect('creator/sticker/index');
 	}
-	
+
 	// เช็ก sticker ซ้ำใน user เดียวกัน
 	public function getAjaxchecksticker()
 	{
@@ -158,7 +159,7 @@ class StickerController extends Controller
 		$sticker_description = $crawler->filter('p.mdCMN38Item01Txt')->text();
 		$sticker_price = $crawler->filter('p.mdCMN38Item01Price')->text();
 		$foot_credit = $crawler->filter('p.mdCMN09Copy')->text();
-		
+
 		// dump($image_cover);
 		// dump($head_credit);
 		// dump($sticker_name);
@@ -174,7 +175,7 @@ class StickerController extends Controller
 		curl_setopt($curlSession, CURLOPT_URL, 'http://dl.stickershop.line.naver.jp/products/0/0/' . $version . '/' . $sticker_code . '/LINEStorePC/productInfo.meta');
 		curl_setopt($curlSession, CURLOPT_BINARYTRANSFER, true);
 		curl_setopt($curlSession, CURLOPT_RETURNTRANSFER, true);
-        // $jsonData = json_decode(curl_exec($curlSession));
+		// $jsonData = json_decode(curl_exec($curlSession));
 		$result = curl_exec($curlSession);
 		curl_close($curlSession);
 		$json = json_decode($result, true);
@@ -214,7 +215,7 @@ class StickerController extends Controller
 		$difference = $update->diffInMinutes($now);
 		$wait = 5 - $difference;
 
-		if(Auth::user()->no_delay == 1){
+		if (Auth::user()->no_delay == 1) {
 			$model = Sticker::find($id);
 			$model->touch();
 			set_notify('success', trans('message.completeSave'));

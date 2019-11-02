@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Emoji extends Model
 {
     // use SoftDeletes;
-    
+    public $table = "emojis";
+
     protected $fillable = array(
         'emoji_code',
         'category',
@@ -22,6 +23,6 @@ class Emoji extends Model
         'status',
         'user_id',
     );
-    
+
     // protected $dates = ['deleted_at'];
 }
