@@ -11,11 +11,10 @@
 			<audio id="mainAudio" class="d-none" controls autoplay preload="metadata">
 				<source src="https://sdl-stickershop.line.naver.jp/stickershop/v1/product/{{ $rs->sticker_code }}/IOS/main_sound.m4a" type="audio/mpeg">
 			</audio>
-			{!! getStickerResourctTypeIcon($rs->stickerresourcetype) !!}
 		</div>
 
 		<div class="sticker-infomation">
-			<h3>{{ $rs->name }}</h3>
+			<h3>{{ $rs->name }} {!! getStickerResourctTypeName($rs->stickerresourcetype) !!}</h3>
 			<ul>
 				<li>ราคา : {{ $rs->price }}</li>
 				<li>ประเภท : ครีเอเตอร์</li>
@@ -47,7 +46,7 @@
 			<ul class="list-inline">
 				@foreach($rs->stamp()->get() as $key=>$row)
 				@php
-					if($rs->stickerresourcetype == 'SOUND' || $rs->stickerresourcetype == 'STATIC'){
+					if($rs->stickerresourcetype == 'SOUND' || $rs->stickerresourcetype == 'STATIC' || $rs->stickerresourcetype == 'NAME_TEXT'){
 						$data_animation = "https://stickershop.line-scdn.net/stickershop/v1/sticker/".$row->stamp_code."/android/sticker.png;compress=true";
 					}elseif($rs->stickerresourcetype == 'POPUP' || $rs->stickerresourcetype == 'POPUP_SOUND'){
 						$data_animation = "https://stickershop.line-scdn.net/stickershop/v1/sticker/".$row->stamp_code."/IOS/sticker_popup.png;compress=true";

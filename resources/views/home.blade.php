@@ -47,9 +47,8 @@
 				<a href="{{ url('sticker/'.$row->sticker_code) }}">
 					<div class="sticker-image-cover">
 						<img src="https://sdl-stickershop.line.naver.jp/products/0/0/{{ $row->version }}/{{ $row->sticker_code }}/android/main.png" alt="สติ๊กเกอร์ไลน์ {{ $row->name }}" class="img-fluid">
-						{!! getStickerResourctTypeIcon($row->stickerresourcetype) !!}
 					</div>
-					<h3 class="fh5co-work-title">{{ $row->name }}</h3>
+					<h3 class="fh5co-work-title">{{ $row->name }} {!! getStickerResourctTypeName($row->stickerresourcetype) !!}</h3>
 					<p>{{ ucfirst($row->country) }}, {{ $row->price }}</p>
 				</a>
 			</div>
